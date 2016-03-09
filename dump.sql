@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: DB
+-- Host: localhost    Database: ois_test
 -- ------------------------------------------------------
--- Server version	5.7.11
+-- Server version	5.6.28-0ubuntu0.15.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -48,9 +48,9 @@ DROP TABLE IF EXISTS `looses_weight`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `looses_weight` (
-  `person_id` int(10) unsigned NOT NULL,
-  `period` int(11) NOT NULL,
-  `start_date` date NOT NULL,
+  `person_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `period` int(11) NOT NULL DEFAULT '0',
+  `start_date` date NOT NULL DEFAULT '0000-00-00',
   `weight_to_lose` int(11) NOT NULL,
   PRIMARY KEY (`person_id`,`start_date`,`period`),
   CONSTRAINT `looses_weight_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `persons` (`person_id`) ON DELETE CASCADE
@@ -63,6 +63,7 @@ CREATE TABLE `looses_weight` (
 
 LOCK TABLES `looses_weight` WRITE;
 /*!40000 ALTER TABLE `looses_weight` DISABLE KEYS */;
+INSERT INTO `looses_weight` VALUES (3,20,'2016-01-03',8),(7,10,'2016-01-01',5);
 /*!40000 ALTER TABLE `looses_weight` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,8 +75,8 @@ DROP TABLE IF EXISTS `person_weighs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `person_weighs` (
-  `person_id` int(10) unsigned NOT NULL,
-  `on_date` date NOT NULL,
+  `person_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `on_date` date NOT NULL DEFAULT '0000-00-00',
   `weight` int(11) NOT NULL,
   PRIMARY KEY (`person_id`,`on_date`),
   CONSTRAINT `person_weighs_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `persons` (`person_id`) ON DELETE CASCADE
@@ -88,6 +89,7 @@ CREATE TABLE `person_weighs` (
 
 LOCK TABLES `person_weighs` WRITE;
 /*!40000 ALTER TABLE `person_weighs` DISABLE KEYS */;
+INSERT INTO `person_weighs` VALUES (1,'2015-12-22',85),(1,'2015-12-25',84),(1,'2015-12-28',85),(1,'2016-01-03',88),(1,'2016-01-06',87),(1,'2016-01-08',86),(2,'2016-01-01',59),(2,'2016-01-05',58),(2,'2016-01-25',57),(2,'2016-02-04',56),(2,'2016-02-16',55),(3,'2016-01-16',98),(3,'2016-01-25',99),(3,'2016-02-15',97),(4,'2016-02-15',87),(4,'2016-02-16',87),(4,'2016-02-17',87),(4,'2016-02-18',86),(4,'2016-02-19',86),(4,'2016-02-20',85),(4,'2016-02-21',85),(4,'2016-02-22',85),(5,'2016-03-10',95),(6,'2016-03-10',65),(7,'2016-02-15',85),(7,'2016-02-17',83),(7,'2016-02-18',84),(7,'2016-02-19',84);
 /*!40000 ALTER TABLE `person_weighs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,12 +104,13 @@ CREATE TABLE `persons` (
   `person_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `length` int(3) NOT NULL,
+  `gender` varchar(1) NOT NULL,
   `birthdate` date NOT NULL,
   `excercise_level` int(2) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`person_id`),
   UNIQUE KEY `uniquePerson` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +119,7 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
+INSERT INTO `persons` VALUES (1,'Max',187,'m','1987-09-10',2,'maximulius@vub.ac.be'),(2,'July',165,'f','1997-02-21',1,'julysmith@hotmail.com'),(3,'David',175,'m','1972-05-01',3,'davidbush@hotmail.com'),(4,'George',178,'m','1982-10-15',1,'georgenicolson@gmail.com'),(5,'Thomas',203,'m','1989-11-30',2,'thomy89@gmail.com'),(6,'Mary',155,'f','1994-01-04',3,'momary@gmail.com'),(7,'Lisa',160,'f','1984-01-12',1,'lisaaax84@gmail.com');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,8 +131,8 @@ DROP TABLE IF EXISTS `recipe_ingredient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recipe_ingredient` (
-  `recipe_id` int(10) unsigned NOT NULL,
-  `ingredient_id` int(10) unsigned NOT NULL,
+  `recipe_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `ingredient_id` int(10) unsigned NOT NULL DEFAULT '0',
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`recipe_id`,`ingredient_id`),
   KEY `ingredient_id` (`ingredient_id`),
@@ -155,8 +159,8 @@ DROP TABLE IF EXISTS `recipe_recipe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recipe_recipe` (
-  `recipe_part_id` int(10) unsigned NOT NULL,
-  `recipe_having_id` int(10) unsigned NOT NULL,
+  `recipe_part_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `recipe_having_id` int(10) unsigned NOT NULL DEFAULT '0',
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`recipe_part_id`,`recipe_having_id`),
   KEY `recipe_having_id` (`recipe_having_id`),
@@ -183,8 +187,8 @@ DROP TABLE IF EXISTS `recipe_tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recipe_tag` (
-  `recipe_id` int(10) unsigned NOT NULL,
-  `tag_id` int(10) unsigned NOT NULL,
+  `recipe_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `tag_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`recipe_id`,`tag_id`),
   KEY `tag_id` (`tag_id`),
   CONSTRAINT `recipe_tag_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipies` (`recipe_id`) ON DELETE CASCADE,
@@ -260,4 +264,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-08 19:21:55
+-- Dump completed on 2016-03-09 22:11:26
