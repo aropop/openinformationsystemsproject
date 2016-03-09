@@ -2,6 +2,7 @@ CREATE TABLE  IF NOT EXISTS `persons` (
 person_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(20) NOT NULL,
 length INTEGER(3) NOT NULL,
+gender VARCHAR(1) NOT NULL, /* 'm' for male, 'f' for female*/
 birthdate DATE NOT NULL,
 excercise_level INTEGER(2) NOT NULL, /* 1 low, 2 average, 3 high */
 email VARCHAR(50) NOT NULL, /* Possibly more emails in the future */
