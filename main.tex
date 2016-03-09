@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\lstset{ %
+frame=single, language=Java,breaklines=true,numbers=left,showspaces=false, showstringspaces=false,captionpos=b}
+\title{OIS M2}
+\author{Jolien Declerck, Silke Verhaeghe, Arno De Witte}
+\date{8 March 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Abstract}
+We build an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
+
+
+\section{Conceptual schema}
+We base our application on a person which has as unique identifier an e-mail address. We provide basic information about the user like its first name, last name, height in centimeters, gender, birth date and an exercise level. This can be high, low or average. We use this for the needed calories per day. Since weight can fluctuate, we keep track of different weights of a person on a specific date. We use the most recent weight for calculating the calories. In order to calculate the daily amount of calories the user needs to stay on the same weight, we use a formula which DITISDEFORMULE which also takes the exercise level of the user into account. It is possible for the user to give a weight loss/gain amount, starting at a specific date for a period of days. 
+
+The application has a list of ingredients, identified by their name. It also keep track of the amount of calories for 100 gram of the ingredient. An ingredient can be part of a recipe. For each recipe we keep track of the amount needed for an ingredient. A recipe has an amount of calories, which is the sum of all ingredients with their calories. Recipes can be easily found with a tag. This tag can be general and includes for instance breakfast but also Chinese or Italian. A recipe can be part of another recipe for example the recipe for spaghetti sauce in the recipe lasagna.  
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5 ]{XX}
+\caption{Conceptual model of Person}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5 ]{XX}
+\caption{Conceptual model of Ingredient and Recipe}
+\end{figure}
+
+
+\section{Database}
+Based on this conceptual schema, a relational database schema was created. For this we used a MySQL relational database. In appendix 1 the SQL used to create the schema is given. As seen in the SQL statement, we used id's to create primary keys for the different concepts (person, recipe, ingredient and tag). This because it is more effient and clearer to reference different concepts in the relation tables. These are then used as primary keys within the different relations among the concepts. 
+
+The script for this is in appendix 1.
+
+\section*{Appendix}
+\subsection*{Appendix 1}
+\begin{lstlisting}[caption=Script of database]
+CREATE TABLE  IF NOT EXISTS `persons` (
+person_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+length INTEGER(3) NOT NULL,
+birthdate DATE NOT NULL,
+excercise_level INTEGER(2) NOT NULL, /* 1 low, 2 average, 3 high */
+email VARCHAR(50) NOT NULL, /* Possibly more emails in the future */
+CONSTRAINT uniquePerson UNIQUE (email) /* No 2 users with the same email */
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `looses_weight` (
+    person_id INTEGER UNSIGNED,
+    period INTEGER,
+    start_date DATE,
+    weight_to_lose INTEGER NOT NULL,
+    CONSTRAINT looses_pk PRIMARY KEY (`person_id`, `start_date`, `period`),
+    FOREIGN KEY (person_id) REFERENCES `persons`(person_id) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `person_weighs` (
+    person_id INTEGER UNSIGNED,
+    on_date DATE,
+    weight INTEGER NOT NULL,
+    CONSTRAINT weighs_pk PRIMARY KEY (`person_id`, `on_date`),
+    FOREIGN KEY (person_id) REFERENCES `persons`(person_id) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `recipies` (
+    recipe_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    calories INTEGER NOT NULL
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `ingredients` (
+    ingredient_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    calories INTEGER NOT NULL
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `tags` (
+    tag_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `recipe_tag` (
+    recipe_id INTEGER UNSIGNED,
+    tag_id INTEGER UNSIGNED,
+    CONSTRAINT recipe_tag_pk PRIMARY KEY (`recipe_id`, `tag_id`),
+    FOREIGN KEY (recipe_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES `tags`(tag_id) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `recipe_ingredient` (
+    recipe_id INTEGER UNSIGNED,
+    ingredient_id INTEGER UNSIGNED,
+    amount INTEGER NOT NULL,
+    CONSTRAINT recipe_ingredient_pk PRIMARY KEY (`recipe_id`, `ingredient_id`),
+    FOREIGN KEY (recipe_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (ingredient_id) REFERENCES `ingredients`(ingredient_id) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS `recipe_recipe` (
+    recipe_part_id INTEGER UNSIGNED,
+    recipe_having_id INTEGER UNSIGNED,
+    amount INTEGER NOT NULL,
+    CONSTRAINT recipe_recipe_pk PRIMARY KEY (`recipe_part_id`, `recipe_having_id`),
+    FOREIGN KEY (recipe_part_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_having_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+\end{lstlisting}
+\section*{References}
+http://www.bbc.co.uk/ontologies/fo
+\end{document}
