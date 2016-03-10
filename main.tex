@@ -15,28 +15,46 @@ frame=single, language=Java,breaklines=true,numbers=left,showspaces=false, shows
 \section{Abstract}
 We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
 
+\newpage
 
 \section{Conceptual schema}
-We base our application on a person which has as unique identifier an e-mail address. We provide basic information about the user like its first name, last name, height in centimeters, gender, birth date and an exercise level. This can be high, low or average. We use this for the needed calories per day. Since weight can fluctuate, we keep track of different weights of a person on a specific date. We use the most recent weight for calculating the calories. In order to calculate the daily amount of calories the user needs to stay on the same weight, we use a formula which DITISDEFORMULE which also takes the exercise level of the user into account. It is possible for the user to give a weight loss/gain amount, starting at a specific date for a period of days. 
 
-The application has a list of ingredients, identified by their name. It also keep track of the amount of calories for 100 gram of the ingredient. An ingredient can be part of a recipe. For each recipe we keep track of the amount needed for an ingredient. A recipe has an amount of calories, which is the sum of all ingredients with their calories. Recipes can be easily found with a tag. This tag can be general and includes for instance breakfast but also Chinese or Italian. A recipe can be part of another recipe for example the recipe for spaghetti sauce in the recipe lasagna.  
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5 ]{XX}
-\caption{Conceptual model of Person}
-\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5 ]{XX}
-\caption{Conceptual model of Ingredient and Recipe}
-\end{figure}
+
+  \begin{figure} [h!]
+     \includegraphics[width = 1.3\textwidth]{image/Person} 
+     \caption{ORM of a person}
+     \label{fig:twotier}
+  \end{figure}
+
+
+  \begin{figure} [h!]
+     \includegraphics[width = 1.3\textwidth]{image/Recipe} 
+     \caption{ORM of a Recipe}
+     \label{fig:twotier}
+  \end{figure}
+\newpage
+
+\subsection{Person} 
+
+We base our application on a person which has as unique identifier an e-mail address. We provide basic information about the user like its  name, height in centimeters, gender, birth date. The gender of a user can be either female or male. A user has an exercise level, this can be high, low or average. This exercise level is important since the amount of calories a user needs in a day is dependant on the amount of exercise the person does. An active person will need a higher amount of calories in a day. Since the application needs to be able to show the fluctuation of the weight of a person, we keep track of how much a person weighs on a specific date. In order to calculate the daily amount of calories the user needs in order to stay on the same weight, we use the following formula: \newline
+Basal Metabolic Rate (BMR) of a man= 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) + 5 \newline
+Basal Metabolic Rate of a  woman = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) - 161 \newline
+In ordor to calculate the amount of calories a person needs we need to multiply this BMR with 1.3 if the exercise level of the person is light, multiply it with 1.6 if the exercise level is average and multiply it with 2.1 if the exercise level is high. The user's latest weight is used as the weight. This daily calorie amount is derived and not stored. A user also has the possibility to give a weight loss/gain amount, starting at a specific date for a period of days. Then the weight in the formula to calculate the needed calorie amount is adapted on the desired weight. 
+
+\subsection{Ingredient}
+The application has a list of ingredients, identified by their name. It also keep track of the amount of calories for 100 gram of the ingredient. An ingredient can be part of a recipe. In that case we also keep track of how much of the ingredient is needed.
+
+\subsection{Recipe}
+ A recipe has an amount of calories, which is the sum of all ingredients with their calories. Recipes can be easily found with a tag. This tag can be general and includes for instance breakfast but also more specific, for example; Chinese or Italian. A recipe can be part of another recipe for example the recipe for spaghetti sauce is part of the recipe for lasagna. In that case we also keep track of the amount of the recipe that is needed.   
 
 
 \section{Database}
 Based on this conceptual schema, a relational database schema was created. For this we used a MySQL relational database. In appendix 1 the SQL used to create the schema is given. As seen in the SQL statement, we used id's to create primary keys for the different concepts (person, recipe, ingredient and tag). This because it is more efficient and clearer to reference different concepts in the relation tables. These are then used as primary keys within the different relations among the concepts. In the persons table a few encodings are used. For one gender is marked by a single character m or f for either male or female. The level of exercise is encoded as an integer from low to high between 1 and 3.\\
 A dump with test data is also included in the deliverables. 
 
+\section{Application layer}
+The application layer should be able to calculate the daily calorie requirements and a user should be able to keep track of how much calories he/she already had that day. It should be able to show a user a graph of his/her weight fluctuations.It should be able to adapt the calorie needs of a user according to it's desired weight. The application layer can recommend the user some recipes according to the calorie needs the user has.
 
 \section*{Appendix}
 \subsection*{Appendix 1}
