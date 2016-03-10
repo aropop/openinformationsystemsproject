@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `person_weighs` (
     FOREIGN KEY (person_id) REFERENCES `persons`(person_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
-CREATE TABLE IF NOT EXISTS `recipies` (
+CREATE TABLE IF NOT EXISTS `recipes` (
     recipe_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT NULL,
     calories INTEGER NOT NULL
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `recipe_tag` (
     recipe_id INTEGER UNSIGNED,
     tag_id INTEGER UNSIGNED,
     CONSTRAINT recipe_tag_pk PRIMARY KEY (`recipe_id`, `tag_id`),
-    FOREIGN KEY (recipe_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE,
     FOREIGN KEY (tag_id) REFERENCES `tags`(tag_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `recipe_ingredient` (
     ingredient_id INTEGER UNSIGNED,
     amount INTEGER NOT NULL,
     CONSTRAINT recipe_ingredient_pk PRIMARY KEY (`recipe_id`, `ingredient_id`),
-    FOREIGN KEY (recipe_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE,
     FOREIGN KEY (ingredient_id) REFERENCES `ingredients`(ingredient_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
@@ -65,6 +65,6 @@ CREATE TABLE IF NOT EXISTS `recipe_recipe` (
     recipe_having_id INTEGER UNSIGNED,
     amount INTEGER NOT NULL,
     CONSTRAINT recipe_recipe_pk PRIMARY KEY (`recipe_part_id`, `recipe_having_id`),
-    FOREIGN KEY (recipe_part_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
-    FOREIGN KEY (recipe_having_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE
+    FOREIGN KEY (recipe_part_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_having_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE
 ) ENGINE=INNODB;

@@ -136,7 +136,7 @@ CREATE TABLE `recipe_ingredient` (
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`recipe_id`,`ingredient_id`),
   KEY `ingredient_id` (`ingredient_id`),
-  CONSTRAINT `recipe_ingredient_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipies` (`recipe_id`) ON DELETE CASCADE,
+  CONSTRAINT `recipe_ingredient_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE,
   CONSTRAINT `recipe_ingredient_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`ingredient_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -164,8 +164,8 @@ CREATE TABLE `recipe_recipe` (
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`recipe_part_id`,`recipe_having_id`),
   KEY `recipe_having_id` (`recipe_having_id`),
-  CONSTRAINT `recipe_recipe_ibfk_1` FOREIGN KEY (`recipe_part_id`) REFERENCES `recipies` (`recipe_id`) ON DELETE CASCADE,
-  CONSTRAINT `recipe_recipe_ibfk_2` FOREIGN KEY (`recipe_having_id`) REFERENCES `recipies` (`recipe_id`) ON DELETE CASCADE
+  CONSTRAINT `recipe_recipe_ibfk_1` FOREIGN KEY (`recipe_part_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE,
+  CONSTRAINT `recipe_recipe_ibfk_2` FOREIGN KEY (`recipe_having_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -191,7 +191,7 @@ CREATE TABLE `recipe_tag` (
   `tag_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`recipe_id`,`tag_id`),
   KEY `tag_id` (`tag_id`),
-  CONSTRAINT `recipe_tag_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipies` (`recipe_id`) ON DELETE CASCADE,
+  CONSTRAINT `recipe_tag_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE,
   CONSTRAINT `recipe_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`tag_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -207,13 +207,13 @@ INSERT INTO `recipe_tag` VALUES (1,2),(4,2),(3,4),(2,5);
 UNLOCK TABLES;
 
 --
--- Table structure for table `recipies`
+-- Table structure for table `recipes`
 --
 
-DROP TABLE IF EXISTS `recipies`;
+DROP TABLE IF EXISTS `recipes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `recipies` (
+CREATE TABLE `recipes` (
   `recipe_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `calories` int(11) NOT NULL,
@@ -222,13 +222,13 @@ CREATE TABLE `recipies` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `recipies`
+-- Dumping data for table `recipes`
 --
 
-LOCK TABLES `recipies` WRITE;
-/*!40000 ALTER TABLE `recipies` DISABLE KEYS */;
-INSERT INTO `recipies` VALUES (1,'Spaghetti Bolo',541),(2,'Lasagna Bolo',541),(3,'Carbonara',99),(4,'Tomato Sauce',330);
-/*!40000 ALTER TABLE `recipies` ENABLE KEYS */;
+LOCK TABLES `recipes` WRITE;
+/*!40000 ALTER TABLE `recipes` DISABLE KEYS */;
+INSERT INTO `recipes` VALUES (1,'Spaghetti Bolo',541),(2,'Lasagna Bolo',541),(3,'Carbonara',99),(4,'Tomato Sauce',330);
+/*!40000 ALTER TABLE `recipes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

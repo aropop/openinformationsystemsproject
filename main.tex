@@ -13,7 +13,7 @@ frame=single, language=Java,breaklines=true,numbers=left,showspaces=false, shows
 \maketitle
 
 \section{Abstract}
-We build an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
+We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
 
 
 \section{Conceptual schema}
@@ -34,7 +34,7 @@ The application has a list of ingredients, identified by their name. It also kee
 
 
 \section{Database}
-Based on this conceptual schema, a relational database schema was created. For this we used a MySQL relational database. In appendix 1 the SQL used to create the schema is given. As seen in the SQL statement, we used id's to create primary keys for the different concepts (person, recipe, ingredient and tag). This because it is more efficient and clearer to reference different concepts in the relation tables. These are then used as primary keys within the different relations among the concepts. In the persons table a few encodings are used. For one gender is marked by a single character m or f for either male or female. The level of excercise is encoded as an integer from low to high between 1 and 3.\\
+Based on this conceptual schema, a relational database schema was created. For this we used a MySQL relational database. In appendix 1 the SQL used to create the schema is given. As seen in the SQL statement, we used id's to create primary keys for the different concepts (person, recipe, ingredient and tag). This because it is more efficient and clearer to reference different concepts in the relation tables. These are then used as primary keys within the different relations among the concepts. In the persons table a few encodings are used. For one gender is marked by a single character m or f for either male or female. The level of exercise is encoded as an integer from low to high between 1 and 3.\\
 A dump with test data is also included in the deliverables. 
 
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `person_weighs` (
     FOREIGN KEY (person_id) REFERENCES `persons`(person_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
-CREATE TABLE IF NOT EXISTS `recipies` (
+CREATE TABLE IF NOT EXISTS `recipes` (
     recipe_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT NULL,
     calories INTEGER NOT NULL
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `recipe_tag` (
     recipe_id INTEGER UNSIGNED,
     tag_id INTEGER UNSIGNED,
     CONSTRAINT recipe_tag_pk PRIMARY KEY (`recipe_id`, `tag_id`),
-    FOREIGN KEY (recipe_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE,
     FOREIGN KEY (tag_id) REFERENCES `tags`(tag_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `recipe_ingredient` (
     ingredient_id INTEGER UNSIGNED,
     amount INTEGER NOT NULL,
     CONSTRAINT recipe_ingredient_pk PRIMARY KEY (`recipe_id`, `ingredient_id`),
-    FOREIGN KEY (recipe_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE,
     FOREIGN KEY (ingredient_id) REFERENCES `ingredients`(ingredient_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
@@ -108,8 +108,8 @@ CREATE TABLE IF NOT EXISTS `recipe_recipe` (
     recipe_having_id INTEGER UNSIGNED,
     amount INTEGER NOT NULL,
     CONSTRAINT recipe_recipe_pk PRIMARY KEY (`recipe_part_id`, `recipe_having_id`),
-    FOREIGN KEY (recipe_part_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE,
-    FOREIGN KEY (recipe_having_id) REFERENCES `recipies`(recipe_id) ON DELETE CASCADE
+    FOREIGN KEY (recipe_part_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipe_having_id) REFERENCES `recipes`(recipe_id) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
 \end{lstlisting}
