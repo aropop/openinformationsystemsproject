@@ -1,10 +1,10 @@
 
 \input{preamble.tex}
 
-\maketitlepage
+
 
 \begin{document}
-
+\maketitlepage
 
 \section{Abstract}
 We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
@@ -51,7 +51,6 @@ A dump with test data is also included in the deliverables.
 The application layer should be able to calculate the daily calorie requirements and a user should be able to keep track of how much calories he/she already had that day. It should be able to show a user a graph of his/her weight fluctuations.It should be able to adapt the calorie needs of a user according to it's desired weight. The application layer can recommend the user some recipes according to the calorie needs the user has.
 
 \section*{Appendix}
-\subsection*{Appendix 1}
 \begin{lstlisting}[caption=Script of database]
 CREATE TABLE  IF NOT EXISTS `persons` (
 person_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -127,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `recipe_recipe` (
 \end{lstlisting}
 \section*{References}
 http://www.bbc.co.uk/ontologies/fo\newline
-http://data.lirmm.fr/ontologies/food#Food\newline
+http://data.lirmm.fr/ontologies/food\#Food\newline
 http://dbpedia.org/ontology/Food \newline
 http://dbpedia.org/ontology/ingredient\newline
 http://semanticdiet.com/ontology.event \newline
