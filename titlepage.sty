@@ -1,0 +1,77 @@
+\usepackage{graphicx}
+
+\setlength{\arrayrulewidth}{1.5mm}
+
+\gdef\@faculty{Faculty of Science and Bio-engineering Sciences}
+\gdef\@department{Department of Computer Science}}
+\gdef\@members{Arno De Witte (Arno.De.Witte@vub.ac.be - 0500504) \\  Jolien Declerck (Jolien.Declerck@vub.ac.be - 0508394)\\ Silke Verhaeghe (Silke.Verhaeghe@vub.ac.be - 500632)}
+\gdef\@iteration{Prof. Dr.Christophe Debruyne}}
+\gdef\@date{Academic year 2014-2015}
+\gdef\@title{Project Open Information Systems}
+
+\newenvironment{multiline}{\verbatim}{\verbatim}%
+
+\def\faculty#1{\gdef\@faculty{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\members#1{\gdef\@members{#1}}
+\def\iteration#1{\gdef\@iteration{#1}}
+\def\date#1{\gdef\@date{#1}}
+
+
+\def\maketitlepage{
+\begin{titlepage}
+\enlargethispage*{1000pt}
+
+\vspace*{-36.6mm}{
+  \hspace*{-40.75mm}{
+    \includegraphics[width=75.5mm,height=15.25mm]{image/VUB_logo}
+  }
+}
+
+\vspace*{-2.5mm}{
+  \hspace*{-25.5mm}{
+    \begin{tabular}{l|l}
+  
+      
+                    % Faculty
+      & \parbox[t]{200pt}{\normalsize{\parbox[t]{500pt}{\@faculty}}\\
+                                        % Department
+                          \footnotesize{\parbox[t]{200pt}{\@department}}
+        } \\
+
+      &  \rule{0pt}{100mm}
+          \rule{0pt}{25mm}\\
+
+      
+      & \rule{6pt}{0mm}
+                % Title
+          \Huge{\parbox[b]{400pt}{\@title}}\\
+          \rule{0pt}{5mm}\\
+        
+      \cline{2-2}
+      
+      \rule{0pt}{14mm}
+      
+      & \rule{6pt}{0mm}\begin{tabular}{l}
+
+          \rule{0pt}{7mm}\LARGE{\parbox[t]{400pt}{\@members}}\\
+          \\
+        \end{tabular}\\
+      \cline{2-2}
+      & \rule{6pt}{0mm}\begin{tabular}{rl}
+          \rule{0pt}{5mm}\\
+  
+
+          \LARGE{\parbox[t]{200pt}{\@iteration}}\\
+        \end{tabular} \\
+      \rule{0pt}{5mm} \\
+
+        % Date
+      & \rule{6pt}{0mm} \begin{tabular}{llr}
+          {\@date} & \rule{200pt}{0mm} & \includegraphics[width=43mm,height=43mm]{imgage/VUB_schild}
+        \end{tabular}
+    \end{tabular}
+  }
+}
+\end{titlepage}
+}
