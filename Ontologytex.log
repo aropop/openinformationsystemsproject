@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.16)  12 APR 2016 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.16)  12 APR 2016 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -635,39 +635,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--3
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
 /VUB_logo.pdf> <./image/VUB_schild.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--28
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--31
 
  []
 
@@ -675,20 +675,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 \end{document}
+l.31 \end{document}
                     [1] [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
  (./Ontologytex.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
-Package rerunfilecheck Info: File `Ontologytex.out' has not changed.
-(rerunfilecheck)             Checksum: 8F9D4AA57B9B304143DDD0C20A7961D3;283.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 31.
+
+
+Package rerunfilecheck Warning: File `Ontologytex.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Ontologytex.out':
+(rerunfilecheck)             Before: 8F9D4AA57B9B304143DDD0C20A7961D3;283
+(rerunfilecheck)             After:  A4F280A94FCA62BE54EB26E2937B82FE;428.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
  ) 
 Here is how much of TeX's memory you used:
- 11585 strings out of 493089
- 166775 string characters out of 6134842
- 272092 words of memory out of 5000000
+ 11586 strings out of 493089
+ 166789 string characters out of 6134842
+ 273092 words of memory out of 5000000
  14954 multiletter control sequences out of 15000+600000
  7170 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -698,10 +705,10 @@ Here is how much of TeX's memory you used:
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Ontologytex.pdf (3 pages, 88601 bytes).
+Output written on Ontologytex.pdf (3 pages, 89812 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
+ 62 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
  11811 words of extra memory for PDF output out of 12000 (max. 10000000)
 
