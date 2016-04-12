@@ -1,17 +1,6 @@
-
-
 \input{preamble.tex}
-
-
-
 \begin{document}
 \maketitlepage
-
-\section{Abstract}
-We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
-
-\newpage
-
 \section{Ontology}
 \subsection{Organization}
 Sander made a slack-channel where everyone of the class was invited to. On this channel, we discussed how we would make the ontology. 
@@ -24,4 +13,16 @@ Every group had to prepare the definitions they would suggest to use and search 
 For this meeting, everyone worked together, one person typed in a document and one person drew on the blackboard. We agreed to finish the ontology, by putting it into Web Protégé, on the same day in the afternoon. During the second meeting face to face, we will look for other commonalities between different groups and maybe develop other ontologies.
 
 \section{Glossary}
+\textit{Recipe} \\
+A collection of ingredients and /  or the steps necessary to combine the ingredients into some food. It contains a list of ingredients, an id and optional steps. \\ \\
+\textit{Food} \\
+Any substance that can be eaten or drunk. When consumed, it provides a nutrition. Food can be an ingredient or the result of a recipe. It only has a name. \\ \\
+\textit{Ingredient} \\
+An ingredient is a substance containing nutrients; an ingredient can be a food. It contains an optional brand, a name and a list of nutrients.  \\ \\
+\textit{IngredientOfRecipe} \\
+The link between a recipe and an ingredient. It depicts the amount of some ingredient necessary to complete a recipe. It contains of an ingredient, a recipe, the amount needed and the unit for the amount. This can be litre or gram or something else.\\ \\
+\textit{Nutrient} \\
+A substance that provides nourishment essential for the maintenance of life and for growth. It can be fat, sugar, carbohydrate, protein, sugar or calories. It has a nutrient\_type and a unit.  \\ \\
+\textit{Ingredient attribute} \\
+The link between a nutrition and an ingredient. It depicts the amount of some nutrient per 100 gram of some ingredient. It has an ingredient and a nutrient.\\ \\
 \end{document}
