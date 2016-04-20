@@ -1,15 +1,18 @@
 \input{preamble.tex}
 \begin{document}
 \maketitlepage
-\section{Ontology}
+%\section{Ontology}
+
+\abstract{
+We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.}
+
 \section{Introduction}
-This report elaborates on the process of creating the ontology for the course Open Information Systems. It describes the organization within our team and how the collaboration with the other teams took place. It shows who contributed to the ontology,which aspects went smoothly and which parts of the ontology were points of discussion.  
+This report elaborates on the process of creating the ontology for the course Open Information Systems. It describes the organization within our team and how the collaboration with the other teams took place. It shows who contributed to the ontology, which aspects went smoothly and which parts of the ontology were points of discussion.  
 
 
-\section{Abstract}
-We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.
 
-\newpage
+
+%\newpage
 
 \section{Ontology}
 
@@ -53,7 +56,7 @@ Any substance that can be eaten or drunk. When consumed, it provides a nutrition
 \textit{Ingredient} \\
 An ingredient is a substance containing nutrients; an ingredient can be a food. It contains an optional brand, a name and a list of nutrients.  \\ \\
 \textit{IngredientOfRecipe} \\
-The link between a recipe and an ingredient. It depicts the amount of some ingredient necessary to complete a recipe. It contains of an ingredient, a recipe, the amount needed and the unit for the amount. This can be litre or gram or something else.\\ \\
+The link between a recipe and an ingredient. It depicts the amount of some ingredient necessary to complete a recipe. It contains of an ingredient, a recipe, the amount needed and the unit for the amount. This can be liter or gram or something else.\\ \\
 \textit{Nutrient} \\
 A substance that provides nourishment essential for the maintenance of life and for growth. It can be fat, sugar, carbohydrate, protein, sugar or calories. It has a nutrient\_type and a unit.  \\ \\
 \textit{Ingredient attribute} \\
