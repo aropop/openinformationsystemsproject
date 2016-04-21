@@ -19,11 +19,11 @@ This report elaborates on the process of creating the ontology (which is include
 \subsection{Organization}
 
 In order to be able to communicate easily between the different groups we decided, after some initial contact on Facebook, to create a slack channel. This channel was created by Sander Lenearts and at least one person from each group was contacted so all the groups and all their members could join. This slack channel has as an advantage that it was possible to start an initial discussion during the vacation period without having to have everybody physically present at the same place. It was also possible to discus between the food and exercise groups, while providing the option to pin certain decisions and files.\\
-We also used a Google Doc files that allows for collaboration on a single document. This was used to type out the glossaries, definitions and conceptual schema's.
+We also used Google Doc files that allows for collaboration on a single document. This was used to type out the glossaries, definitions and conceptual schema's.
 
 \subsection{Meetings}
 
-In the first meeting that took place on slack we wanted to create a global ontology. The only thing that both the food groups and the exercises groups had in common was energy. We decided on a definition that both had a relationship to food and to exercises without getting too technical. Another point of discussion was the unit. Some people wanted to have the SI unit (joule) but since the unit calories is more widely used, it was decided to use calories as unit. Since there were no more commonalities, we decided to work with the food group separately. This was done in a different slack channel were each group was identified using a separate avatar. 
+In the first meeting that took place on slack. We wanted to create a global ontology. The only thing that both the food groups and the exercises groups had in common was energy. We decided on a definition that both had a relationship to food and to exercises without getting too technical. Another point of discussion was the unit. Some people wanted to have the SI unit (joule) but since the unit calories is more widely used, it was decided to use calories as unit. Since there were no more commonalities, we decided to work with the food group separately. This was done in a different slack channel were each group was identified using a separate avatar. 
 \newline
 \newline
 \noindent
@@ -43,24 +43,32 @@ We tried having another meeting on Wednesday 13 April where group 2 and group 1 
 \newline
 \newline
 \noindent
-During the meeting of Monday 18 April, after having asked questions during the classes that day, all groups were present. We put the ontology in the local version prot\'eg\'e. Furthermore we had an extra discussion since we didn't want to have calories in the nutritional value since we didn't like the fact that calories weren't in fact nutritional values. Group 5 also brought up that they didn't like the relationship with amount/nutritional value since it was too complex. They proposed (again) to have an extra data property \emph{energy} on the ingredient class. After hearing the arguments it was decided to change the name, since calories aren't nutrients. But to keep the relationship with amount(changed name to quantity since this is more informative)/nutritional value since this one is more general. We like to note that while group 8 was present they didn't have any input.\\
-We also faced the issue of adding an extra class between ingredient and nutritional value. This is not strictly necessary but because we also had a \emph{linking} class between recipe and ingredient we decided to add this as well. This because otherwise ingredient class would have a data property amount, which is not very generic as other applications might be interested in only the ingredient class.
+During the meeting of Monday 18 April, after having asked questions during the classes that day, all groups were present. We put the ontology in the local version of prot\'eg\'e. Furthermore we had an extra discussion since we didn't want to have calories in the nutritional value since we didn't like the fact that calories weren't in fact nutritional values. Group 5 also brought up that they didn't like the relationship with amount/nutritional value since it was too complex. They proposed (again) to have an extra data property \emph{energy} on the ingredient class. After hearing the arguments it was decided to change the name, since calories aren't nutrients. But to keep the relationship with amount(changed name to quantity since this is more informative)/nutritional value since this one is more general. We like to note that while groups 8 and 4 where present they didn't have any input.\\
+We also faced the issue of adding an extra class between ingredient and nutritional value. This is not strictly necessary but because we also had a \emph{linking} class between recipe and ingredient we decided to add this as well. This because otherwise ingredient class would have a data property amount, which is not very generic as other applications might be interested in only the ingredient class. During this meeting some name changes where made because they where clearer.
 
 \subsection{Other discussions}
 We discussed what other groups had in common with our proposal. Because there where no things that where worthwhile exchanging we did not add an extra ontology.
 
 We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology.  
+\subsection{Ontology explained}
+
 \section{Glossary}
 \textit{Recipe} \\
-A collection of ingredients and /  or the steps necessary to combine the ingredients into some food. It contains a list of ingredients, an id and optional steps. \\ \\
+A collection of ingredients and/or the steps necessary to combine the ingredients into some food. It contains a list of ingredients with their quantity, a list of steps to complete the recipe and a link to food. \\ \\
 \textit{Food} \\
 Any substance that can be eaten or drunk. When consumed, it provides a nutrition. Food can be an ingredient or the result of a recipe. It only has a name. \\ \\
 \textit{Ingredient} \\
-An ingredient is a substance containing nutrients; an ingredient can be a food. It contains an optional brand, a name and a list of nutrients.  \\ \\
-\textit{IngredientOfRecipe} \\
-The link between a recipe and an ingredient. It depicts the amount of some ingredient necessary to complete a recipe. It contains of an ingredient, a recipe, the amount needed and the unit for the amount. This can be liter or gram or something else.\\ \\
-\textit{Nutrient} \\
-A substance that provides nourishment essential for the maintenance of life and for growth. It can be fat, sugar, carbohydrate, protein, sugar or calories. It has a nutrient\_type and a unit.  \\ \\
-\textit{Ingredient attribute} \\
-The link between a nutrition and an ingredient. It depicts the amount of some nutrient per 100 gram of some ingredient. It has an ingredient and a nutrient.\\ \\
+An ingredient is a substance containing nutrients; an ingredient can be a food. It contains an optional brand, a name and a list of nutritive values with their quantity. \\ \\
+\textit{Ingredient Quantity} \\
+The link between a recipe and an ingredient. 
+It depicts the amount of some ingredient necessary to complete a recipe.
+It contains a reference to the ingredient, a quantity and the unit for which the quantity is specified. This can be liter, a table spoon or something similar.
+\\ \\
+\textit{Nutritive value} \\
+A substance that provides nourishment essential for the maintenance of life and for growth. For example fat, sugar, carbohydrate, protein, sodium. This contains only a name. \\ \\
+\textit{Nutritive Value Quantity} \\
+The link between a nutrition and an ingredient. 
+It depicts the amount of some nutrient per 100 gram of some ingredient. This contains an ID of nutritive value, a quantity and the unit for which the quantity is specified.\\ \\
+\textit{Recipe Step} \\
+A step in the preparation process of a recipe. A step has a ordering number starting from 1. A step has a number for ordering and a string as a human readable description. This contains an order number which specifies the order of the steps and a description. 
 \end{document}
