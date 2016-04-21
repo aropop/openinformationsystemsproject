@@ -51,6 +51,13 @@ We discussed what other groups had in common with our proposal. Because there wh
 
 We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology.  
 \subsection{Ontology explained}
+The ontology is centred around the ingredient class. An ingredient was the thing we all had in common to start with. Ingredients have nutritional values like sugar, salt and calories, specified in the list of nutritive values. We have decided to make an extra class nutritive value to specify this. Because we need to be able to have multiple nutritive values for one ingredient, we have added the nutritive value quantity. This was necessary for some of the groups in order to be able to map to the ontology. Here you can specify the quantity specified for a nutritive value for 100 gram. 
+\\ \\
+Ingredients can also be combined into a recipe. We have also added an ingredient quantity class for the same reason we added the nutritive value quantity. A recipe can have multiple ingredients combined. The ingredient quantity class specifies the quantity needed for the ingredient in a specific recipe. We have also provided the unit of quantity. Combining some ingredients result into a recipe. The result of a recipe is something that we can eat so we have classified this into food. There is also a possibility to provide steps in order to complete a recipe. Steps consists of an ordering number and the description of the step. 
+\\ \\
+Because we have made this decision, all groups can map onto it. In our case, not every ingredient is combined into a recipe but it is still food. Therefore we can say for example, one apple is the ingredient for eating an apple, it does not specify any steps. Via this way we can say that an apple is a food.
+\\ \\
+We did not add a link between food and ingredient. This is because in the open world assumption a food can also be an ingredient. Initially it was provided to add a link but some groups protested because they did not see the benefit of it so we left it out. 
 
 \section{Glossary}
 \textit{Recipe} \\
