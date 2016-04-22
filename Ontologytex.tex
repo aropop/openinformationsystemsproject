@@ -49,16 +49,21 @@ We also faced the issue of adding an extra class between ingredient and nutritio
 
 \subsection{Team Organization}
 
-Since Arno De Witte was on vacation during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we weren't sure of certain aspects we could always reach Arno, and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. Writing the report was a group effort. 
+Since Arno De Witte was unavailable spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we weren't sure of certain aspects we could always reach Arno, and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. Writing the report was a group effort. 
 
 \subsection{Other discussions}
 We discussed what other groups had in common with our proposal. Because there where no things that where worthwhile exchanging we did not add an extra ontology.
 \newline
 \newline
 \noindent
-We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology.  
+We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology.
+\newline
+\newline
+\noindent
+The day before the deadline, a point about adding disjointness rules to the ontology. This was proposed by Sander Lenaerts (Group 1), however some groups (2 and 7) wanted to keep the already decided on ontology as the deadline neared and this did not yield a high priority. However without the consent of all groups, a adapted ontology was pinned in the slack channel. Some groups, including ours, had to change their document last minute to comply with this change.
+
 \subsection{Ontology explained}
-The ontology is centred around the ingredient class. An ingredient was the thing we all had in common to start with. Ingredients have nutritional values like sugar, salt and calories, specified in the list of nutritive values. We have decided to make an extra class nutritive value to specify this. Because we need to be able to have multiple nutritive values for one ingredient, we have added the nutritive value quantity. This was necessary for some of the groups in order to be able to map to the ontology. Here you can specify the quantity specified for a nutritive value for 100 gram.
+The ontology is centered around the ingredient class. An ingredient was the thing we all had in common to start with. Ingredients have nutritional values like sugar, salt and calories, specified in the list of nutritive values. We have decided to make an extra class nutritive value to specify this. Because we need to be able to have multiple nutritive values for one ingredient, we have added the nutritive value quantity class. This was necessary for some of the groups in order to be able to map to the ontology. Here you can specify the quantity specified for a nutritive value for 100 gram. It also provides with a single class for nutritive values, which would otherwise be ``polluted" with a unit and an amount.
 \\ \\
 Ingredients can also be combined into a recipe. We have also added an ingredient quantity class for the same reason we added the nutritive value quantity. A recipe can have multiple ingredients combined. The ingredient quantity class specifies the quantity needed for the ingredient in a specific recipe. We have also provided the unit of quantity. Combining some ingredients result into a recipe. The result of a recipe is something that we can eat so we have classified this as food. There is also a possibility to provide steps in order to complete a recipe. Steps consists of an ordering number and the description of the step. 
 \\ \\
