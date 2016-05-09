@@ -1,0 +1,83 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ont: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/>.
+
+
+<#IngredientTrippleMap>
+	a rr:TriplesMap; 
+	rr:logicalTable [
+		rr:tableName "Ingredient"
+		];
+	rr:subjectMap [
+		rr:template "http://data.groep2.be/resource/ingredient/{ingredient_id}";
+		rr:class ont:ingredient
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate ont:hasIngredientName;
+		rr:objectMap [rr:column "name"]
+	];
+.
+
+<#RecipeTrippleMap>
+	a rr:TriplesMap; 
+	rr:logicalTable [
+		rr:tableName "Recipe"
+		];
+	rr:subjectMap [
+		rr:template "http://data.groep2.be/resource/recipe/{recipe_id}";
+		rr:class ont:recipe
+	];
+.
+
+<#IngredientQuantity>
+	a rr:TriplesMap;
+	rr:logicalTable [
+		rr:tableName "recipe_ingredient"
+		];
+	rr:subjectMap [
+		rr:template "http://data.groep2.be/resource/ingredient_quantity/{recipe_id}/{ingredient_id}";
+		rr:class ont:IngredientQuantity
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate ont:hasIngredientQuantity;
+		rr:objectMap [rr:column "amount"]
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate ont:hasQuantityUnit;
+		rr:objectMap [rr:constant "gram"]
+	];
+
+	rr:predicateObjectMap	[	
+		rr:predicate ont:hasIngredient;
+		rr:objectMap [
+			rr:parentTriplesMap <#IngredientTrippleMap>;	
+			rr:joinCondition	[rr:child "ingredient_id"; rr:parent "ingredient_id"]
+		]	
+	];
+.
+<#FoodTrippleMap>
+	a rr:TriplesMap; 
+	rr:logicalTable [
+		rr:tableName "Recipe"
+		];
+	rr:subjectMap [
+		rr:template "http://data.groep2.be/resource/recipe/{recipe_id}";
+		rr:class ont:food
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate ont:hasFoodName;
+		rr:objectMap [rr:column "name"]
+	];
+.
+
+<#NutritiveValueMapping>
+	a rr:TriplesMap;
+	#[]
+	rr:predicateMap [ rr:constant ont:hasNutritiveValueName ];
+	rr:objectMap [ rr:constant "Calories" ];
+.
+
+

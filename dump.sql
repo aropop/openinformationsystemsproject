@@ -19,10 +19,10 @@
 -- Table structure for table `ingredients`
 --
 
-DROP TABLE IF EXISTS `ingredients`;
+DROP TABLE IF EXISTS `Ingredient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ingredients` (
+CREATE TABLE `Ingredient` (
   `ingredient_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `calories` int(11) NOT NULL,
@@ -31,13 +31,13 @@ CREATE TABLE `ingredients` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ingredients`
+-- Dumping data for table `Ingredient`
 --
 
-LOCK TABLES `ingredients` WRITE;
-/*!40000 ALTER TABLE `ingredients` DISABLE KEYS */;
-INSERT INTO `ingredients` VALUES (1,'Tomato',50),(2,'Minced meat',200),(3,'Paprika',50),(4,'Onion',30),(5,'Apple',121),(6,'Cola zero',1),(7,'Cola',133),(8,'Water',0),(9,'Pasta',211),(10,'Cheese',23),(11,'Pasta sheets',211),(12,'Yoghurt',121),(13,'Chicken',143),(14,'Steak',213),(15,'Fries',322),(16,'Milk',32),(17,'Flour',44),(18,'Bread',166),(19,'Choco',23),(20,'Confiture',32);
-/*!40000 ALTER TABLE `ingredients` ENABLE KEYS */;
+LOCK TABLES `Ingredient` WRITE;
+/*!40000 ALTER TABLE `Ingredient` DISABLE KEYS */;
+INSERT INTO `Ingredient` VALUES (1,'Tomato',50),(2,'Minced meat',200),(3,'Paprika',50),(4,'Onion',30),(5,'Apple',121),(6,'Cola zero',1),(7,'Cola',133),(8,'Water',0),(9,'Pasta',211),(10,'Cheese',23),(11,'Pasta sheets',211),(12,'Yoghurt',121),(13,'Chicken',143),(14,'Steak',213),(15,'Fries',322),(16,'Milk',32),(17,'Flour',44),(18,'Bread',166),(19,'Choco',23),(20,'Confiture',32);
+/*!40000 ALTER TABLE `Ingredient` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `looses_weight` (
   `start_date` date NOT NULL DEFAULT '0000-00-00',
   `weight_to_lose` int(11) NOT NULL,
   PRIMARY KEY (`person_id`,`start_date`,`period`),
-  CONSTRAINT `looses_weight_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `persons` (`person_id`) ON DELETE CASCADE
+  CONSTRAINT `looses_weight_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `Person` (`person_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,7 +79,7 @@ CREATE TABLE `person_weighs` (
   `on_date` date NOT NULL DEFAULT '0000-00-00',
   `weight` int(11) NOT NULL,
   PRIMARY KEY (`person_id`,`on_date`),
-  CONSTRAINT `person_weighs_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `persons` (`person_id`) ON DELETE CASCADE
+  CONSTRAINT `person_weighs_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `Person` (`person_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -94,13 +94,13 @@ INSERT INTO `person_weighs` VALUES (1,'2015-12-22',85),(1,'2015-12-25',84),(1,'2
 UNLOCK TABLES;
 
 --
--- Table structure for table `persons`
+-- Table structure for table `Person`
 --
 
-DROP TABLE IF EXISTS `persons`;
+DROP TABLE IF EXISTS `Person`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `persons` (
+CREATE TABLE `Person` (
   `person_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `length` int(3) NOT NULL,
@@ -114,13 +114,13 @@ CREATE TABLE `persons` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `persons`
+-- Dumping data for table `Person`
 --
 
-LOCK TABLES `persons` WRITE;
-/*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'Max',187,'m','1987-09-10',2,'maximulius@vub.ac.be'),(2,'July',165,'f','1997-02-21',1,'julysmith@hotmail.com'),(3,'David',175,'m','1972-05-01',3,'davidbush@hotmail.com'),(4,'George',178,'m','1982-10-15',1,'georgenicolson@gmail.com'),(5,'Thomas',203,'m','1989-11-30',2,'thomy89@gmail.com'),(6,'Mary',155,'f','1994-01-04',3,'momary@gmail.com'),(7,'Lisa',160,'f','1984-01-12',1,'lisaaax84@gmail.com');
-/*!40000 ALTER TABLE `persons` ENABLE KEYS */;
+LOCK TABLES `Person` WRITE;
+/*!40000 ALTER TABLE `Person` DISABLE KEYS */;
+INSERT INTO `Person` VALUES (1,'Max',187,'m','1987-09-10',2,'maximulius@vub.ac.be'),(2,'July',165,'f','1997-02-21',1,'julysmith@hotmail.com'),(3,'David',175,'m','1972-05-01',3,'davidbush@hotmail.com'),(4,'George',178,'m','1982-10-15',1,'georgenicolson@gmail.com'),(5,'Thomas',203,'m','1989-11-30',2,'thomy89@gmail.com'),(6,'Mary',155,'f','1994-01-04',3,'momary@gmail.com'),(7,'Lisa',160,'f','1984-01-12',1,'lisaaax84@gmail.com');
+/*!40000 ALTER TABLE `Person` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -136,8 +136,8 @@ CREATE TABLE `recipe_ingredient` (
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`recipe_id`,`ingredient_id`),
   KEY `ingredient_id` (`ingredient_id`),
-  CONSTRAINT `recipe_ingredient_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE,
-  CONSTRAINT `recipe_ingredient_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`ingredient_id`) ON DELETE CASCADE
+  CONSTRAINT `recipe_ingredient_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `Recipe` (`recipe_id`) ON DELETE CASCADE,
+  CONSTRAINT `recipe_ingredient_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `Ingredient` (`ingredient_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -164,8 +164,8 @@ CREATE TABLE `recipe_recipe` (
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`recipe_part_id`,`recipe_having_id`),
   KEY `recipe_having_id` (`recipe_having_id`),
-  CONSTRAINT `recipe_recipe_ibfk_1` FOREIGN KEY (`recipe_part_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE,
-  CONSTRAINT `recipe_recipe_ibfk_2` FOREIGN KEY (`recipe_having_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE
+  CONSTRAINT `recipe_recipe_ibfk_1` FOREIGN KEY (`recipe_part_id`) REFERENCES `Recipe` (`recipe_id`) ON DELETE CASCADE,
+  CONSTRAINT `recipe_recipe_ibfk_2` FOREIGN KEY (`recipe_having_id`) REFERENCES `Recipe` (`recipe_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -191,8 +191,8 @@ CREATE TABLE `recipe_tag` (
   `tag_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`recipe_id`,`tag_id`),
   KEY `tag_id` (`tag_id`),
-  CONSTRAINT `recipe_tag_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`) ON DELETE CASCADE,
-  CONSTRAINT `recipe_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`tag_id`) ON DELETE CASCADE
+  CONSTRAINT `recipe_tag_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `Recipe` (`recipe_id`) ON DELETE CASCADE,
+  CONSTRAINT `recipe_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `Tag` (`tag_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -207,13 +207,13 @@ INSERT INTO `recipe_tag` VALUES (1,2),(4,2),(3,4),(2,5);
 UNLOCK TABLES;
 
 --
--- Table structure for table `recipes`
+-- Table structure for table `Recipe`
 --
 
-DROP TABLE IF EXISTS `recipes`;
+DROP TABLE IF EXISTS `Recipe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `recipes` (
+CREATE TABLE `Recipe` (
   `recipe_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `calories` int(11) NOT NULL,
@@ -222,23 +222,23 @@ CREATE TABLE `recipes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `recipes`
+-- Dumping data for table `Recipe`
 --
 
-LOCK TABLES `recipes` WRITE;
-/*!40000 ALTER TABLE `recipes` DISABLE KEYS */;
-INSERT INTO `recipes` VALUES (1,'Spaghetti Bolo',541),(2,'Lasagna Bolo',541),(3,'Carbonara',99),(4,'Tomato Sauce',330);
-/*!40000 ALTER TABLE `recipes` ENABLE KEYS */;
+LOCK TABLES `Recipe` WRITE;
+/*!40000 ALTER TABLE `Recipe` DISABLE KEYS */;
+INSERT INTO `Recipe` VALUES (1,'Spaghetti Bolo',541),(2,'Lasagna Bolo',541),(3,'Carbonara',99),(4,'Tomato Sauce',330);
+/*!40000 ALTER TABLE `Recipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tags`
+-- Table structure for table `Tag`
 --
 
-DROP TABLE IF EXISTS `tags`;
+DROP TABLE IF EXISTS `Tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tags` (
+CREATE TABLE `Tag` (
   `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`tag_id`)
@@ -246,13 +246,13 @@ CREATE TABLE `tags` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tags`
+-- Dumping data for table `Tag`
 --
 
-LOCK TABLES `tags` WRITE;
-/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Chinese'),(2,'Italian'),(3,'Breakfast'),(4,'Diner'),(5,'Lunch'),(6,'Snack'),(7,'Greek'),(8,'Japanese'),(9,'Dessert'),(10,'Mediterranean');
-/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
+LOCK TABLES `Tag` WRITE;
+/*!40000 ALTER TABLE `Tag` DISABLE KEYS */;
+INSERT INTO `Tag` VALUES (1,'Chinese'),(2,'Italian'),(3,'Breakfast'),(4,'Diner'),(5,'Lunch'),(6,'Snack'),(7,'Greek'),(8,'Japanese'),(9,'Dessert'),(10,'Mediterranean');
+/*!40000 ALTER TABLE `Tag` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
