@@ -114,6 +114,29 @@ It depicts the amount of some nutrient per 100 gram of some ingredient. This con
 \textit{Recipe Step} \\
 A step in the preparation process of a recipe. A step has a ordering number starting from 1. A step has a number for ordering and a string as a human readable description. This contains an order number which specifies the order of the steps and a description.
 
+\section{Mapping database to ontology}
+Because we want a lot of data where we can query on, we asked the other food-groups to exchange their triples. Some exercise groups also wanted to use the triples of the food groups. Therefore, our group put messages on the slack channel, on the facebook group and on the pointcarré-forum of the course. Although we thought that it could benefit other groups to, to exchange the information, we did not get the response we've expected. This could be because some groups did not had their triples ready or they did not saw the message although we put it on three different media. 
+
+Only group 1 and group 5 asked to use our triples for the food-groups and one exercise group wanted to use our triples to. We have send them our ttl-file. 
+\section{Non-trivial demonstrator}
+Our demonstration allows to formulate a number of health and dieting constraints (has to consume a number of calories, cant eat too much salt, is allergic to nuts, ...) and search for fitting recipes. Our demonstration allows to easily fill in these constraints and suggests a number of recipes that fit these needs. Users can combine constraints in a "and-or-not" kind of fashion. For example a user cannot eat too much fat combined with too much sugar, he is also allergic to bananas. This would result in a rule; fat lower than 30g or sugar lower than 20g and no bananas. Additional to this user can express preferences, for example a user dislikes broccoli but likes fries. Recipes with broccoli will be ranked lower than recipes with fries.
+
+This demonstration uses the developed ontology and thus also databases of other teams. This because the ontology provides the ingredients for each recipe as well as their nutritive values. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favorable, unfavorable or neutral for a certain set of preferences.
+\subsection{Rule based languages}
+We have looked at two different rule based languages, SPIN and SWRL. 
+
+hier komt de vergelijking
+\subsection{Non-trivial demonstrator}
+
+\section{Reflection}
+DATABASE
+
+ONTOLOGY
+Although every group participated and checked the ontology, we missed something. We forgot to gave a recipe a name. For our group, this was not a problem, because we mapped every recipe as food as well and food contains a name. Some other groups also complained again about the nutritional values and the quantity of them. Because this is not something we have, this was not a problem for our group. 
+
+MAPPING
+
+NONTRIVIALDEMONSTRATOR
 
 
 \section*{References}
@@ -124,4 +147,6 @@ http://dbpedia.org/ontology/ingredient\newline
 http://semanticdiet.com/ontology.event \newline
 http://dbpedia.org/ontology/Person \newline
 
+
+http://starpc14.vub.ac.be:8080/webprotege
 \end{document}
