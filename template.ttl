@@ -33,39 +33,45 @@ ont:templateNut
     spin:body
             [ a       sp:Construct ;
               sp:text """
-              CONSTRUCT {
-                        _:violation a spin:ConstraintViolation ;
-                             spin:violationRoot ?this ;
-                             spin:violationPath ont:Recipe ;
-                             spin:violationValue ?this ;
-                             spin:violationLevel ?testWarn ;
-                             rdfs:label "Nutrient value exceeded"
-                    }
-                    WHERE {
+                      PREFIX ont: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/>
+                      PREFIX spin: <http://spinrdf.org/spin#>
+                      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                      PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                      CONSTRUCT {
+                          _:violation a spin:ConstraintViolation ;
+                               spin:violationRoot ?this ;
+                               spin:violationPath ont:Recipe ;
+                               spin:violationValue ?this ;
+                               spin:violationLevel ?testWarn ;
+                               rdfs:label ?label .
+                      }
+                      WHERE {
+                        {
+                          SELECT ?this (SUM(?amount) as ?tot)
+                          WHERE {
                          ?this a ont:Recipe;
                             ont:requiresQuantityOfIngredient ?ingredientQuantity;
                             ont:resultsIn ?food.
                           ?food ont:hasFoodName ?fname.
-                          ?ingredientQuantity a ont:IngredientQuantity;
-                            ont:hasIngredient ?ingredient.
-                          ?ingredient a ont:Ingredient;
-                            ont:hasIngredientName ?name.
-                          {
-                            SELECT (SUM (?amount) as ?totalNutrient)
-                            WHERE {
-                                ?ingredient ont:hasNutritiveQuantity ?nutquant.
+                          ?ingredientQuantity ont:hasIngredient ?ingredient.
+                          ?ingredient ont:hasIngredientName ?name.
+
+                                ?ingredient ont:hasNutritiveValueQuantity ?nutquant.
                                 ?nutquant ont:hasNutritiveValue ?nutval;
                                 	ont:hasNutritiveQuantity ?amount.
-                                ?nutval ont:hasNutrtiveValueName ?nutname.
+                                ?nutval ont:hasNutritiveValueName ?nutname.
                                 FILTER(?nutname = ?parNutrient)
-                          	}
-                          }
-                          BIND(?parWarn as ?testWarn) .
-                          FILTER(?amount < ?parValue)
-                        }
+
+
+                       } GROUP BY ?this
+                     }
+                     FILTER(?tot > ?parValue) .
+                     BIND(?parWarn as ?testWarn) .
+                     BIND(CONCAT("Nutrient constraint by ", xsd:string(?this), ", too much ", xsd:string(?parNutrient), " (", xsd:string(?tot), ")") AS ?label) .
+                   }
               """ ] .
-              
-              
+
+
 ont:templateIngre
     a   spl:ConstraintTemplate ;
     rdfs:subClassOf 	spl:ConstraintTemplate ;
@@ -128,4 +134,3 @@ ont:parNutrient
   rdf:type rdf:Property ;
   rdfs:label "name of nutrient"^^xsd:string ;
   rdfs:subPropertyOf sp:arg .
-

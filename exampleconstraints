@@ -1,0 +1,3 @@
+HARD "Cholesterol" < 4 AND
+SOFT not "Tomato" 
+

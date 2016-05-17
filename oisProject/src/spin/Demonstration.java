@@ -76,6 +76,8 @@ public class Demonstration {
 		    // Init Semantic models
 		    Model baseModel = ModelFactory.createDefaultModel();
 			baseModel.read("file://"+spindir+"/FoodOntology.ttl"); 
+			Model tstModel = ModelFactory.createDefaultModel();
+			tstModel.read("file://"+spindir+"groep1data.ttl"); 
 			OntModel ontModel = JenaUtil.createOntologyModel(OntModelSpec.OWL_MEM,baseModel);
 			Model tempModel = ModelFactory.createDefaultModel();
 			tempModel.read("file://"+spindir+"template.ttl"); 
@@ -85,12 +87,13 @@ public class Demonstration {
 			ParseTreeWalker.DEFAULT.walk(extractor, context);
 			
 			//Debug
-			//tempModel.write(System.out, "turtle");
+			tempModel.write(System.out, "turtle");
 			
 			// Create united model
 			MultiUnion union = new MultiUnion(new Graph[] {
 					ontModel.getGraph(),
 					tempModel.getGraph(),
+					tstModel.getGraph(),
 					SPL.getModel().getGraph(),
 					SPIN.getModel().getGraph(),
 					SP.getModel().getGraph()
@@ -158,7 +161,7 @@ public class Demonstration {
 		Resource rc = m.createResource();
 		rc.addProperty(RDF.type, m.getResource(nsO+"templateNut"));
 		rc.addProperty(m.getProperty(nsO+"parNutrient"), nutrient);
-		rc.addProperty(m.getProperty(nsO+"parValue"), ""+value);
+		rc.addProperty(m.getProperty(nsO+"parValue"), m.createTypedLiteral(value));
 		rc.addProperty(m.getProperty(nsO+"parWarn"), m.getResource(nsS+level));
 		food.addProperty(constraint, rc);
 	}
