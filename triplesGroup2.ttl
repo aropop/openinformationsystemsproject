@@ -1,0 +1,183 @@
+
+<http://data.groep2.be/resource/ingredient_quantity/1/9> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "150"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/2/11> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "200"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/3/9> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "150"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/1> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "100"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/2> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "150"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/3> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "20"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/4> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/IngredientQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasQuantityUnit> "gram" ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientQuantity> "40"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/ingredient_quantity/1/9> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/9> .
+
+<http://data.groep2.be/resource/ingredient_quantity/2/11> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/11> .
+
+<http://data.groep2.be/resource/ingredient_quantity/3/9> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/9> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/1> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/1> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/2> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/2> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/3> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/3> .
+
+<http://data.groep2.be/resource/ingredient_quantity/4/4> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> <http://data.groep2.be/resource/ingredient/4> .
+
+<http://data.groep2.be/resource/recipe/1> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Recipe> .
+
+<http://data.groep2.be/resource/recipe/2> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Recipe> .
+
+<http://data.groep2.be/resource/recipe/3> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Recipe> .
+
+<http://data.groep2.be/resource/recipe/4> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Recipe> .
+
+<http://data.groep2.be/resource/recipe/1> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> <http://data.groep2.be/resource/ingredient_quantity/1/9> .
+
+<http://data.groep2.be/resource/recipe/2> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> <http://data.groep2.be/resource/ingredient_quantity/2/11> .
+
+<http://data.groep2.be/resource/recipe/3> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> <http://data.groep2.be/resource/ingredient_quantity/3/9> .
+
+<http://data.groep2.be/resource/recipe/4> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> <http://data.groep2.be/resource/ingredient_quantity/4/1> , <http://data.groep2.be/resource/ingredient_quantity/4/2> , <http://data.groep2.be/resource/ingredient_quantity/4/3> , <http://data.groep2.be/resource/ingredient_quantity/4/4> .
+
+<http://data.groep2.be/resource/recipe/1> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> <http://data.groep2.be/resource/food/1> .
+
+<http://data.groep2.be/resource/recipe/2> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> <http://data.groep2.be/resource/food/2> .
+
+<http://data.groep2.be/resource/recipe/3> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> <http://data.groep2.be/resource/food/3> .
+
+<http://data.groep2.be/resource/recipe/4> <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> <http://data.groep2.be/resource/food/4> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/50> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "50"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/200> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "200"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/30> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "30"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/121> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "121"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/1> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/133> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "133"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/0> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/211> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "211"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/23> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "23"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/143> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "143"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/213> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "213"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/322> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "322"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/32> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "32"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/44> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "44"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/166> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie" , "kCal" , "166"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://data.groep2.be/resource/food/1> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Food> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> "Spaghetti Bolo" .
+
+<http://data.groep2.be/resource/food/2> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Food> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> "Lasagna Bolo" .
+
+<http://data.groep2.be/resource/food/3> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Food> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> "Carbonara" .
+
+<http://data.groep2.be/resource/food/4> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Food> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> "Tomato Sauce" .
+
+<http://data.groep2.be/resource/ingredient/1> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Tomato" .
+
+<http://data.groep2.be/resource/ingredient/2> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Minced meat" .
+
+<http://data.groep2.be/resource/ingredient/3> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Paprika" .
+
+<http://data.groep2.be/resource/ingredient/4> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Onion" .
+
+<http://data.groep2.be/resource/ingredient/5> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Apple" .
+
+<http://data.groep2.be/resource/ingredient/6> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Cola zero" .
+
+<http://data.groep2.be/resource/ingredient/7> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Cola" .
+
+<http://data.groep2.be/resource/ingredient/8> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Water" .
+
+<http://data.groep2.be/resource/ingredient/9> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Pasta" .
+
+<http://data.groep2.be/resource/ingredient/10> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Cheese" .
+
+<http://data.groep2.be/resource/ingredient/11> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Pasta sheets" .
+
+<http://data.groep2.be/resource/ingredient/12> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Yoghurt" .
+
+<http://data.groep2.be/resource/ingredient/13> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Chicken" .
+
+<http://data.groep2.be/resource/ingredient/14> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Steak" .
+
+<http://data.groep2.be/resource/ingredient/15> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Fries" .
+
+<http://data.groep2.be/resource/ingredient/16> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Milk" .
+
+<http://data.groep2.be/resource/ingredient/17> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Flour" .
+
+<http://data.groep2.be/resource/ingredient/18> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Bread" .
+
+<http://data.groep2.be/resource/ingredient/19> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Choco" .
+
+<http://data.groep2.be/resource/ingredient/20> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient> ;
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> "Confiture" .

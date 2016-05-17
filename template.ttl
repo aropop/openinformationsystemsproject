@@ -1,0 +1,131 @@
+@prefix ont:   <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sp:    <http://spinrdf.org/sp#> .
+@prefix spin:  <http://spinrdf.org/spin#> .
+@prefix spl:  <http://spinrdf.org/spl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+
+ont:templateNut
+    a   spl:ConstraintTemplate ;
+    rdfs:subClassOf 	spl:ConstraintTemplate ;
+    rdfs:comment "Template that sets the constraint for nutrients" ;
+    rdfs:label "nutrients suffice"^^xsd:string ;
+    spin:constraint
+            [ a       spl:Argument ;
+              rdfs:comment "nutrient expected" ;
+              spl:predicate ont:parNutrient ;
+              spl:valueType xsd:string
+            ] ;
+    spin:constraint
+            [ a       spl:Argument ;
+              rdfs:comment "nutrient value expected" ;
+              spl:predicate ont:parValue ;
+              spl:valueType xsd:integer
+            ] ;
+    spin:constraint
+            [ a       spl:Argument ;
+              rdfs:comment "warning level" ;
+              spl:predicate ont:parWarn ;
+              spl:valueType spin:ConstraintViolationLevel
+            ] ;
+    spin:body
+            [ a       sp:Construct ;
+              sp:text """
+              CONSTRUCT {
+                        _:violation a spin:ConstraintViolation ;
+                             spin:violationRoot ?this ;
+                             spin:violationPath ont:Recipe ;
+                             spin:violationValue ?this ;
+                             spin:violationLevel ?testWarn ;
+                             rdfs:label "Nutrient value exceeded"
+                    }
+                    WHERE {
+                         ?this a ont:Recipe;
+                            ont:requiresQuantityOfIngredient ?ingredientQuantity;
+                            ont:resultsIn ?food.
+                          ?food ont:hasFoodName ?fname.
+                          ?ingredientQuantity a ont:IngredientQuantity;
+                            ont:hasIngredient ?ingredient.
+                          ?ingredient a ont:Ingredient;
+                            ont:hasIngredientName ?name.
+                          {
+                            SELECT (SUM (?amount) as ?totalNutrient)
+                            WHERE {
+                                ?ingredient ont:hasNutritiveQuantity ?nutquant.
+                                ?nutquant ont:hasNutritiveValue ?nutval;
+                                	ont:hasNutritiveQuantity ?amount.
+                                ?nutval ont:hasNutrtiveValueName ?nutname.
+                                FILTER(?nutname = ?parNutrient)
+                          	}
+                          }
+                          BIND(?parWarn as ?testWarn) .
+                          FILTER(?amount < ?parValue)
+                        }
+              """ ] .
+              
+              
+ont:templateIngre
+    a   spl:ConstraintTemplate ;
+    rdfs:subClassOf 	spl:ConstraintTemplate ;
+    rdfs:comment "Template that sets the constraint for ingredients" ;
+    rdfs:label "ingredient not allowed"^^xsd:string ;
+    spin:constraint
+            [ a       spl:Argument ;
+              rdfs:comment "ingredient expected" ;
+              spl:predicate ont:parIngredient ;
+              spl:valueType xsd:string
+            ] ;
+    spin:constraint
+            [ a       spl:Argument ;
+              rdfs:comment "warning level" ;
+              spl:predicate ont:parWarn ;
+              spl:valueType spin:ConstraintViolationLevel
+            ] ;
+    spin:body
+            [ a       sp:Construct ;
+              sp:text """
+              CONSTRUCT {
+                        _:violation a spin:ConstraintViolation ;
+                             spin:violationRoot ?this ;
+                             spin:violationPath ont:Recipe ;
+                             spin:violationValue ?this ;
+                             spin:violationLevel ?testWarn ;
+                             rdfs:label "Ingredient not allowed"
+                    }
+                    WHERE {
+                          ?this a ont:Recipe;
+                            ont:requiresQuantityOfIngredient ?ingredientQuantity .
+                          ?ingredientQuantity a ont:IngredientQuantity;
+                            ont:hasIngredient ?ingredient.
+                          ?ingredient a ont:Ingredient;
+                            ont:hasIngredientName ?name.
+                          BIND(?parWarn as ?testWarn) .
+                          FILTER(?name = ?parIngredient)
+                        }
+              """ ] .
+
+
+
+ont:parWarn
+  rdf:type rdf:Property ;
+  rdfs:label "warning level"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg .
+
+ont:parIngredient
+  rdf:type rdf:Property ;
+  rdfs:label "ingredient"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg .
+
+ont:parValue
+  rdf:type rdf:Property ;
+  rdfs:label "value of nutrient"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg .
+
+
+ont:parNutrient
+  rdf:type rdf:Property ;
+  rdfs:label "name of nutrient"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg .
+

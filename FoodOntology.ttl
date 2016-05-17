@@ -1,0 +1,168 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology> 
+	a owl:Ontology ;
+	owl:imports <file:///home/arno/workspace/Open%20information%20systems/db2triple/output.ttl> .
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasIngredient>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity> ;
+  rdfs:range <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Ingredient> ;
+  rdfs:comment "an ingredient quantity references to the quantity of some ingredient" ;
+  rdfs:label "has ingredient" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasNutrititiveValueQuantity>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Ingredient> ;
+  rdfs:range <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity> ;
+  rdfs:comment "an ingredient has multiple nutritive value quantities" ;
+  rdfs:label "has nutritive value quantity" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasNutritiveValue>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity> ;
+  rdfs:range <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValue> ;
+  rdfs:comment "the nutritive value for a certain nutritive value quantity" ;
+  rdfs:label "has nutritive value" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasStep>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe> ;
+  rdfs:range <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment "a recipe can consists of some steps" ;
+  rdfs:label "has step" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#requiresQuantityOfIngredient>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe> ;
+  rdfs:range <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity> ;
+  rdfs:comment "a recipe requires a quantity of an ingredient" ;
+  rdfs:label "requires quantity of ingredient" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#resultsIn>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe> ;
+  rdfs:range <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Food> ;
+  rdfs:comment "food can be the result of a recipe" ;
+  rdfs:label "results in" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasBrand>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Ingredient> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "an ingredient can have a brand" ;
+  rdfs:label "has brand" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasFoodName>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Food> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "a food has a name" ;
+  rdfs:label "has food name" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasIngredientName>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Ingredient> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "an ingredient has a name" ;
+  rdfs:label "has ingredient name" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasIngredientQuantity>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity> ;
+  rdfs:range xsd:float ;
+  rdfs:comment "this number specifies the required quantity of some ingredient in the recipe" ;
+  rdfs:label "has ingredient quantity" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasNutrientQuantityUnit>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "the unit in which a certain nutritive value is expressed" ;
+  rdfs:label "has nutritive quantity unit" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasNutritiveQuantity>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity> ;
+  rdfs:range xsd:float ;
+  rdfs:comment "the quantity of a nutritive value that is present in 100 grams of a certain ingredient" ;
+  rdfs:label "has nutritive quantity" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasNutritiveValueName>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValue> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "a name for a nutritive value." ;
+  rdfs:label "has nutritive value name" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasOrderingNumber>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:range xsd:integer ;
+  rdfs:comment """the number indicates the order in which this step needs to be completed
+in order to complete the recipe""" ;
+  rdfs:label "has ordering number" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasQuantityUnit>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "the unit specifying the quantity for an ingredient, for example gram" ;
+  rdfs:label "has quantity unit" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#hasStepDescription>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "a step has a description on how to execute it" ;
+  rdfs:label "has step description" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Food>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValue>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment "Any substance that can be eaten or drunk. When consumed, it provides a nutrition. Food can be an ingredient or the result of a recipe." ;
+  rdfs:label "food" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Ingredient>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment "An ingredient is a substance containing nutrients; an ingredient can be a food." ;
+  rdfs:label "ingredient" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#IngredientQuantity>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValue>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment """The link between a recipe and an ingredient. 
+It depicts the amount of some ingredient necessary to complete a recipe.""" ;
+  rdfs:label "ingredient quantity" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValue>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment """A substance that provides nourishment essential for the maintenance of life and for growth. 
+For example fat, sugar, carbohydrate, protein, sodium.""" ;
+  rdfs:label "nutritive value" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#NutritiveValueQuantity>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe>, <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment "The quantity and unit of a nutritive value for 100 grams of a certain ingredient." ;
+  rdfs:label "nutritive value quantity" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#Recipe>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep> ;
+  rdfs:comment "A collection of ingredients and/or the steps necessary to combine the ingredients into some food." ;
+  rdfs:label "recipe" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#RecipeStep>
+  a owl:Class ;
+  rdfs:comment """A step in the preparation process of a recipe. A step has a ordering number starting from 1. 
+A step has a number for ordering and a string as a human readable description.""" ;
+  rdfs:label "recipe step" .
+
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie> a owl:NamedIndividual .
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#salt> a owl:NamedIndividual .
+<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#sugar> a owl:NamedIndividual .
+owl:topDataProperty rdfs:comment "" .
