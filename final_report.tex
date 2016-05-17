@@ -1,4 +1,10 @@
 \input{preamble.tex}
+\usepackage{listings}
+\lstset{ 
+    frame=single, 
+    breaklines=true,
+    breakatwhitespace=false,
+    }
 \begin{document}
 \maketitlepage
 %\section{Ontology}
@@ -123,20 +129,58 @@ Our demonstration allows to formulate a number of health and dieting constraints
 
 This demonstration uses the developed ontology and thus also databases of other teams. This because the ontology provides the ingredients for each recipe as well as their nutritive values. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favorable, unfavorable or neutral for a certain set of preferences.
 \subsection{Rule based languages}
-We have looked at two different rule based languages, SPIN and SWRL. 
+Because we have to define some rules and queries, we need a rule based language to define those things. We have looked at two different rule based languages, SPIN and SWRL.
+\subsection*{SPIN}
+The first rule based language is SPIN, SPARQL Inference Notation. The rules in this language can be expressed using SPARQL, which is very expressive. Therefore rules can run on RDF data, in our case our triples. With SPIN, you can calculate things for example the difference in weight of a person in a specific period. 
 
-hier komt de vergelijking
+SPIN uses the concepts of object oriented languages, query languages and rule based systems. They used SPARQL because it is a WC3 standard. 
+SPIN makes it also possible to create templates. This has as advantage that the designers of the rules do not need to know SPARQL. In our case, this not necessary because we are defining the rules and the queries for the non-trivial demonstrator. 
+
+An example of an ask-query is defined below in listing 1.
+
+\begin{lstlisting}[caption={Example of query using SPIN}]
+[ a       sp:Ask ;
+      rdfs:comment "must be at least 18 years old"^^xsd:string ;
+      sp:where ([ sp:object _:b1 ;
+                  sp:predicate ex:age ;
+                  sp:subject spin:_this
+                ] [ a       sp:Filter ;
+                    sp:expression
+                            [ a       sp:ge ;
+                              sp:arg1 _:b1 ;
+                              sp:arg2 18
+                            ]
+                ])
+    ]
+\end{lstlisting}
+
+\subsection*{SWRL}
+The second rule based language is SWRL, Semantic Web Rule Language. It is a combination of OWL DL and OWL Lite. It combines Horn-like rules with OWL knowledge base. The rules are expressed like in Prolog with a head and a body. This means that if all conditions in the body hold, the conditions in the head also holds. 
+
+An example of a rule is specified in listing 2.
+\begin{lstlisting}[caption={Example of query using SWRL}]
+Implies(Antecedent(Artist(I-variable(x)) 
+		   artistStyle(I-variable(x) I-variable(y))
+		   Style(I-variable(y))
+		   creator(I-variable(z) I-variable(x)))
+	Consequent(style/period(I-variable(z) I-variable(y))))
+\end{lstlisting}
+
+\subsection*{Choise}
+Because we've already used SPARQL for this project, we have chosen for SPIN to be our rule based language. The reasons are because you can define templates which can be reused and we can define constraints. SWRL is strong on interfering, but because we do not need this, we have chosen for SPIN.
+
+We have used Jena Fuseki as a Java API to upload our data sets, which where all the sets of the food groups, and to query SPARQL queries on the data sets. We have used Jena, but we only used the GUI for exploring how everything works. 
 \subsection{Non-trivial demonstrator}
 
 \section{Reflection}
-DATABASE
+\subsection*{Database} 
 
-ONTOLOGY
+\subsection*{Ontology} 
 Although every group participated and checked the ontology, we missed something. We forgot to gave a recipe a name. For our group, this was not a problem, because we mapped every recipe as food as well and food contains a name. Some other groups also complained again about the nutritional values and the quantity of them. Because this is not something we have, this was not a problem for our group. 
 
-MAPPING
+\subsection*{Mapping} 
 
-NONTRIVIALDEMONSTRATOR
+\subsection*{Non-trivial demonstrator} 
 
 
 \section*{References}
@@ -146,7 +190,10 @@ http://dbpedia.org/ontology/Food \newline
 http://dbpedia.org/ontology/ingredient\newline
 http://semanticdiet.com/ontology.event \newline
 http://dbpedia.org/ontology/Person \newline
-
-
-http://starpc14.vub.ac.be:8080/webprotege
+http://spinrdf.org/sp.html\newline
+http://www.w3.org/
+Submission/spin-overview/\newline
+http://www.w3.org/Submission/SWRL/\newline
+http://starpc14.vub.ac.be:8080/webprotege \newline
+https://jena.apache.org/documentation/serving\_data/
 \end{document}
