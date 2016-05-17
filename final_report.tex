@@ -56,11 +56,11 @@ In the first meeting that took place on slack. We wanted to create a global onto
 \newline
 \newline
 \noindent
-The second slack meeting, for the food team, there was at least one member of every group besides group 8. We started with a definition for an Ingredient. A huge point of discussion was whether an ingredient had a brand. Group 5 really wanted this incorporated while this was the only group that needed this aspect. It was proposed that the brand could be part of a more specialized ontology but group 5 didn't agree with this so it was decided that brands would be part of it but, clearly stating that they \textbf{where} an optional property. Since slack has as drawback that it doesn't keep the complete channel history (in the free version) and since discussions on slack can be rather uncoordinated we decided to have the next meeting face to face. 
+The second slack meeting, for the food team, there was at least one member of every group besides group 8. We started with a definition for an Ingredient. A huge point of discussion was whether an ingredient had a brand. Group 5 really wanted this incorporated while this was the only group that needed this aspect. It was proposed that the brand could be part of a more specialised ontology but group 5 didn't agree with this so it was decided that brands would be part of it but, clearly stating that they \textbf{where} an optional property. Since slack has as drawback that it doesn't keep the complete channel history (in the free version) and since discussions on slack can be rather uncoordinated we decided to have the next meeting face to face. 
 \newline
 \newline
 \noindent
-Every group had to prepare a glossary and search for entities in their database. During this meeting, that took place Monday 11 April in the morning, all groups but one, group 8, \textbf{where} represented by at least one member. Group 8 did not reply in the slack-channel, the Facebook chat or on the forum on PointCarr\'e. We discussed other ways of contacting them, and decided we would personally contact them during another class. During this meeting we discussed the first food ontology. There was a discussion about whether only to incorporate calories or if other nutritious values \textbf{where} necessary as well. In the end we decided to go with the definition that group 7 proposed since every group was able to map on this definition and since this was the design that was general enough so that the ontology could be easier to reuse. The incorporation of recipe, food and ingredient, and their relation was one of the easiest to decide on. Furthermore we discussed that everybody had some kind of concept to describe either ingredients or recipes, tags in our case. But since the definition of this was so different for each group we settled on not including them at this point in our ontology and we noted that we can always come back to it. During this meeting the focus however did seem to be a lot on how our databases \textbf{where} designed and sometimes group 5 did seem to focus too much on their specific implementation. After agreeing on most definitions and almost finishing the basic ontology, someone noticed that calories is not a nutritional value. We had a discussion whether we should change it and put calorie in the ingredient entity or leave it that way. Where group 5 proposed to put calories in ingredients and have an extra data property that would enable us to use the energetic value of an ingredient in joule or in kcal. Because calories did fit our personal definition of nutritional values, we left it the way we first agreed to it because every group could map onto this ontology. The collaboration went good and we had one person typing our glossary in a Google doc while somebody else drew the different entities on the blackboard. 
+Every group had to prepare a glossary and search for entities in their database. During this meeting, that took place Monday 11 April in the morning, all groups but one, group 8, \textbf{where} represented by at least one member. Group 8 did not reply in the slack-channel, the Facebook chat or on the forum on PointCarr\'e. We discussed other ways of contacting them, and decided we would personally contact them during another class. During this meeting we discussed the first food ontology. There was a discussion about whether only to incorporate calories or if other nutritious values \textbf{where} necessary as well. In the end we decided to go with the definition that group 7 proposed since every group was able to map on this definition and since this was the design that was general enough so that the ontology could be easier to reuse. The incorporation of recipe, food and ingredient, and their relation was one of the easiest to decide on. Furthermore we discussed that everybody had some kind of concept to describe either ingredients or recipes, tags in our case. But since the definition of this was so different for each group we settled on not including them at this point in our ontology and we noted that we can always come back to it. During this meeting the focus however did seem to be a lot on how our databases \textbf{where} designed and sometimes group 5 did seem to focus too much on their specific implementation. After agreeing on most definitions and almost finishing the basic ontology, someone noticed that calories is not a nutritional value. We had a discussion whether we should change it and put calorie in the ingredient entity or leave it that way. Where group 5 proposed to put calories in ingredients and have an extra data property that would enable us to use the energetic value of an ingredient in joule or in kCal. Because calories did fit our personal definition of nutritional values, we left it the way we first agreed to it because every group could map onto this ontology. The collaboration went good and we had one person typing our glossary in a Google doc while somebody else drew the different entities on the blackboard. 
 \newline
 \newline
 \noindent
@@ -77,14 +77,15 @@ We also faced the issue of adding an extra class between ingredient and nutritio
 
 \subsection{Team Organization}
 
-Since Arno De Witte was on vacation during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we \textbf{wheren}'t sure of certain aspects we could always reach Arno and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. Writing the report was a group effort. 
+Since Arno De Witte was on vacation during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we \textbf{wheren}'t sure of certain aspects we could always reach Arno and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. Writing the report was a group effort. \todo{Uitbreiden met wat er laatste stretch nog gedaan is}
 
 \subsection{Other discussions}
 We discussed what other groups had in common with our proposal. Because there where no things that where worthwhile exchanging we did not add an extra ontology.
 \newline
 \newline
 \noindent
-We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology.  
+We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology. \todo{aanpassen ontology, namespaces}
+
 \subsection{Ontology explained}
 The ontology is centred around the ingredient class. An ingredient was the thing we all had in common to start with. Ingredients have nutritional values like sugar, salt and calories, specified in the list of nutritive values. We have decided to make an extra class nutritive value to specify this. Because we need to be able to have multiple nutritive values for one ingredient, we have added the nutritive value quantity. This was necessary for some of the groups in order to be able to map to the ontology. Here you can specify the quantity specified for a nutritive value for 100 gram.
 \\ \\
@@ -115,29 +116,51 @@ It depicts the amount of some nutrient per 100 gram of some ingredient. This con
 A step in the preparation process of a recipe. A step has a ordering number starting from 1. A step has a number for ordering and a string as a human readable description. This contains an order number which specifies the order of the steps and a description.
 
 \section{Mapping database to ontology}
-Because we want a lot of data where we can query on, we asked the other food-groups to exchange their triples. Some exercise groups also wanted to use the triples of the food groups. Therefore, our group put messages on the slack channel, on the facebook group and on the pointcarré-forum of the course. Although we thought that it could benefit other groups to, to exchange the information, we did not get the response we've expected. This could be because some groups did not had their triples ready or they did not saw the message although we put it on three different media. 
+Because we want a lot of data where we can query on, we asked the other food-groups to exchange their triples. Some exercise groups also wanted to use the triples of the food groups. Therefore, our group put messages on the slack channel, on the Facebook group and on the pointcarré-forum of the course. Although we thought that it could benefit other groups to, to exchange the information, we did not get the response we've expected. This could be because some groups did not had their triples ready or they did not saw the message although we put it on three different media.\todo{nog iets over hoe we dat zelf gedaan hebben, recipe name en geen steps enzo?}
 
 Only group 1 and group 5 asked to use our triples for the food-groups and one exercise group wanted to use our triples to. We have send them our ttl-file. 
 \section{Non-trivial demonstrator}
 Our demonstration allows to formulate a number of health and dieting constraints (has to consume a number of calories, cant eat too much salt, is allergic to nuts, ...) and search for fitting recipes. Our demonstration allows to easily fill in these constraints and suggests a number of recipes that fit these needs. Users can combine constraints in a "and-or-not" kind of fashion. For example a user cannot eat too much fat combined with too much sugar, he is also allergic to bananas. This would result in a rule; fat lower than 30g or sugar lower than 20g and no bananas. Additional to this user can express preferences, for example a user dislikes broccoli but likes fries. Recipes with broccoli will be ranked lower than recipes with fries.
 
-This demonstration uses the developed ontology and thus also databases of other teams. This because the ontology provides the ingredients for each recipe as well as their nutritive values. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favorable, unfavorable or neutral for a certain set of preferences.
+This demonstration uses the developed ontology and thus also databases of other teams. This because the ontology provides the ingredients for each recipe as well as their nutritive values. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favourable, unfavourable or neutral for a certain set of preferences.
 \subsection{Rule based languages}
-We have looked at two different rule based languages, SPIN and SWRL. 
+We have looked at two different rule based languages, SPIN and SWRL. Vergeet niet te zeggen da je constraints kan definiëren adhv een sparql CONSTRUCT query!!
 
-hier komt de vergelijking
+\todo{hier komt de vergelijking}
 \subsection{Non-trivial demonstrator}
+Our demonstrator is implemented as a java application which can be used as a commandline tool. It has dependencies on the jena API\footnote{\url{https://jena.apache.org/}}, SPIN open source API\footnote{\url{http://topbraid.org/spin/api/}} and the Antlr parser library\footnote{\url{http://www.antlr.org/}}. As said in the previous section we used SPIN to implement our demonstrator. For our demonstrator we implemented two SPIN constraints, one to filter recipes that contain a certain ingredient and one to filter recipes that contain too much of a certain nutritive value. These constraint were abstracted using SPIN templates. This allows to use parameters such as the nutrient name or the nutrient value. We also added a parameter to indicate a certain violation level\footnote{\url{http://spinrdf.org/spin.html\#spin-constraint-construct}}. This parameter was used to differentiate between hard and soft constraints. To apply these SPIN constraints, a constraint had to be added to the Recipe class defined in the ontology as shown below:
+\begin{lstlisting}[caption=Example of applying constraints in turtle]
+ont:Recipe  
+  spin:constraint  [ a ont:templateIngre ;
+                     ont:parIngredient  "Tomato" ;
+                     ont:parWarn        spin:Warning
+                   ] ;
+  spin:constraint  [ a ont:templateNut ;
+                     ont:parNutrient  "Cholesterol" ;
+                     ont:parValue     "4"^^xsd:int ;
+                     ont:parWarn      spin:Error
+                   ] .
+\end{lstlisting} 
+These applications are added to the model at runtime by the java code. Thereafter all the models containing triples are united and the SPIN constraint check method will produce a list of constraint violations. These are then looped over and divided in hard and soft constraint violations. Then all recipes (except the ones that violate a hard constraint) are queried and displayed to the user.\\
+The constraints can be expressed using a simple language which is defined as seen below. With the Antlr library a walker can be generated. In this walker at the end of each constraint, a method is called which adds this constraint to the model. 
+\begin{lstlisting}[caption=Example of the constraints file]{Name}
+HARD "Cholesterol" < 4 AND
+SOFT not "Tomato" 
+\end{lstlisting}
+There were some issues that occurred during the implementation of the demonstrator. We wanted to allow for a and-or type of chaining of constraints. This was however difficult as the SPIN constraints don't allow for this kind of functionality. A solution would be to define ID's to each constraint and then check within the java code. But the SPIN open source API (which is not documented) does not allow to retrieve additional properties given to a constraint.\\
+We also tried to implement different kind of operators for the nutrient constraint (e.g. smaller than, equals). But because the constraints are implemented in SPARQL and it is not possible to use a variables as operator, this was not possible. We tried to use the SPIN SPARQL syntax but the syntax for operators is undocumented (however some operators are shown in the examples) and support for it in the open source API is lacking at this time.\\
+For future work this demonstrator could be expanded by adding more constraints (e.g. limiting the amount of steps in a recipe). A larger amount of constraints would indicate that more abstract templates can be defined (now only two separate templates exist). Further more the rule system in SPIN could be used to infer properties (e.g. recipe length).
 
 \section{Reflection}
-DATABASE
+\todo{DATABASE}
 
 ONTOLOGY
 Although every group participated and checked the ontology, we missed something. We forgot to gave a recipe a name. For our group, this was not a problem, because we mapped every recipe as food as well and food contains a name. Some other groups also complained again about the nutritional values and the quantity of them. Because this is not something we have, this was not a problem for our group. 
 
 MAPPING
 
-NONTRIVIALDEMONSTRATOR
-
+\subsection{Non-trivial demonstrator}
+When looking into SPIN it seemed a perfect fit for the demonstrator we wanted to implement. However the lack of documentation of the open source API and the lack of documentation surrounding the operators made implementing all of our goals impossible. SPIN is a good fit for these kind of projects because of its relation with SPARQL, but the implementation and documentation of the API could be a lot better at this point in time.
 
 \section*{References}
 http://www.bbc.co.uk/ontologies/fo\newline

@@ -87,7 +87,7 @@ public class Demonstration {
 			ParseTreeWalker.DEFAULT.walk(extractor, context);
 			
 			//Debug
-			tempModel.write(System.out, "turtle");
+			//tempModel.write(System.out, "turtle");
 			
 			// Create united model
 			MultiUnion union = new MultiUnion(new Graph[] {
