@@ -1,3 +1,4 @@
+
 \input{preamble.tex}
 \usepackage{listings}
 \lstset{ 
@@ -11,10 +12,10 @@
 
 \abstract{
 \noindent
-We are building an application which allows the user to keep track of the amount of calories that he/she eats a day.  The application provides a way to track the desired amount of food the user should eat in order to stay on the same weight. Based on the amount of calories the user needs, some recipes are proposed. The user could provide a desired weight, which will lead to an adaptation of the needed calories intake.}
+For the course Open Information Systems we first proposed an application for users to keep track of the desired amount of calories a user needs to eat in a day. A conceptual schema was made and we created a database and populated it. This application was used as a base to make an ontology with the different groups participating in the course Open Information Systems. We proposed and implemented a non-trivial demonstrator that used this ontology.}
 
 \section{Introduction}
-In this report, we look back at the previous assignments and criticise our work. We look back at our database, the ontology made with the entire group and how we map the ontology to our database. We also made a non-trivial demonstrator. 
+In this report, we look back at the previous stages of the assignments and we have made adaptations to our work where necessary. This includes the conceptual schema, the database, the ontology made with the entire group. Furthermore this report also describes the mapping of the ontology to our database. To show how the ontology can be used we proposed and made a non-trivial demonstrator.
 
 \newpage
 
@@ -33,10 +34,10 @@ In this report, we look back at the previous assignments and criticise our work.
 
 \subsection{Person} 
 
-We base our application on a person which has as unique identifier an e-mail address. We provide basic information about the user like its  name, height in centimeters, gender, birth date. The gender of a user can be either female or male. A user has an exercise level, this can be high, low or average. This exercise level is important since the amount of calories a user needs in a day is dependent on the amount of exercise the person does. An active person will need a higher amount of calories in a day. Since the application needs to be able to show the fluctuation of the weight of a person, we keep track of how much a person weighs on a specific date. In order to calculate the daily amount of calories the user needs in order to stay on the same weight, we use the following formula: \newline
+We base our application on a person which has as unique identifier an e-mail address. We provide basic information about the user for instance, its  name, height in centimeters, gender, birth date. The gender of a user can be either female or male. A user has an exercise level, this can be high, low or average. This exercise level is important since the amount of calories a user needs in a day is dependent on the amount of exercise the person does. An active person will need a higher amount of calories in a day. Since the application needs to be able to show the fluctuation of the weight of a person, we keep track of how much a person weighs on a specific date. The unit used for the weight of a person is kg.  In order to calculate the daily amount of calories the user needs in order to stay on the same weight, we use the following formula: \newline
 Basal Metabolic Rate (BMR) of a man= 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) + 5 \newline
 Basal Metabolic Rate of a  woman = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) - 161 \newline
-In order to calculate the amount of calories a person needs we need to multiply this BMR with 1.3 if the exercise level of the person is light, multiply it with 1.6 if the exercise level is average and multiply it with 2.1 if the exercise level is high. The user's latest weight is used as the weight. This daily calorie amount is derived and not stored. A user also has the possibility to give a weight loss/gain amount, starting at a specific date for a period of days. Then the weight in the formula to calculate the needed calorie amount is adapted on the desired weight. 
+In order to calculate the amount of calories a person needs we need to multiply this BMR with 1.3; if the exercise level of the person is light. Multiply it with 1.6; if the exercise level is average and multiply it with 2.1; if the exercise level is high. The user's latest weight is used as the weight. This daily calorie amount is derived and not stored. A user also has the possibility to give a weight loss/gain amount, starting at a specific date for a period of days. Then the weight in the formula to calculate the needed calorie amount is adapted to the desired weight. 
 
 \subsection{Ingredient}
 The application has a list of ingredients, identified by their name. It also keep track of the amount of calories for 100 gram of the ingredient. An ingredient can be part of a recipe. In that case we also keep track of how much of the ingredient is needed.
@@ -46,8 +47,7 @@ The application has a list of ingredients, identified by their name. It also kee
 
 
 \section{Database}
-Based on this conceptual schema, a relational database schema was created. For this we used a MySQL relational database.As seen in the SQL statement, we used id's to create primary keys for the different concepts (person, recipe, ingredient and tag). This because it is more efficient and clearer to reference different concepts in the relation tables. These are then used as primary keys within the different relations among the concepts. In the persons table a few encodings are used. For one gender is marked by a single character m or f for either male or female. The level of exercise is encoded as an integer from low to high between 1 and 3.\\
-\textbf{A dump with test data is also included in the deliverables. MOET DIT ER NOGMAALS STAAN??}
+Based on this conceptual schema, a relational database schema was created. For this we used a MySQL relational database.As seen in the SQL statement, we used id's to create primary keys for the different concepts (person, recipe, ingredient and tag). This because it is more efficient and more clear to reference different concepts in the relation tables. These are then used as primary keys within the different relations among the concepts. In the persons table a few encodings are used. For one gender is marked by a single character m or f for either male or female. The level of exercise is encoded as an integer from low to high between 1 and 3.\\
 
 \section{Ontology}
 
@@ -62,7 +62,7 @@ In the first meeting that took place on slack. We wanted to create a global onto
 \newline
 \newline
 \noindent
-The second slack meeting, for the food team, there was at least one member of every group besides group 8. We started with a definition for an Ingredient. A huge point of discussion was whether an ingredient had a brand. Group 5 really wanted this incorporated while this was the only group that needed this aspect. It was proposed that the brand could be part of a more specialised ontology but group 5 didn't agree with this so it was decided that brands would be part of it but, clearly stating that they were an optional property. Since slack has as drawback that it doesn't keep the complete channel history (in the free version) and since discussions on slack can be rather uncoordinated we decided to have the next meeting face to face. 
+The second slack meeting, for the food team, there was at least one member of every group besides group 8. We started with a definition for an Ingredient. A huge point of discussion was whether an Ingredient had a brand. Group 5 really wanted this incorporated while this was the only group that needed this aspect. It was proposed that the brand could be part of a more specialised ontology but group 5 didn't agree with this so it was decided that brands would be part of it but, clearly stating that they were an optional property. Since slack has as drawback that it doesn't keep the complete channel history (in the free version) and since discussions on slack can be rather uncoordinated we decided to have the next meeting face to face. 
 \newline
 \newline
 \noindent
@@ -78,12 +78,12 @@ We tried having another meeting on Wednesday 13 April where group 2 and group 1 
 \newline
 \newline
 \noindent
-During the meeting of Monday 18 April, after having asked questions during the classes that day, all groups \textbf{where} present. We put the ontology in the local version of Protégé. Furthermore we had an extra discussion since we didn't want to have calories in the nutritional value since we didn't like the fact that calories weren't in fact nutritional values. Group 5 also brought up that they didn't like the relationship with amount/nutritional value since it was too complex. They proposed (again) to have an extra data property \emph{energy} on the ingredient class. After hearing the arguments it was decided to change the name, since calories aren't nutrients. But to keep the relationship with amount(changed name to quantity since this is more informative)/nutritional value since this one is more general. We like to note that while groups 8 and 4 where present they didn't have any input.\\ \\
+During the meeting of Monday 18 April, after having asked questions during the classes that day, all groups were present. We put the ontology in the local version of Protégé. Furthermore we had an extra discussion since we didn't want to have calories in the nutritional value since we didn't like the fact that calories weren't in fact nutritional values. Group 5 also brought up that they didn't like the relationship with amount/nutritional value since it was too complex. They proposed (again) to have an extra data property \emph{energy} on the ingredient class. After hearing the arguments it was decided to change the name, since calories aren't nutrients. But to keep the relationship with amount(changed name to quantity since this is more informative)/nutritional value since this one is more general. We like to note that while groups 8 and 4 where present they didn't have any input.\\ \\
 We also faced the issue of adding an extra class between ingredient and nutritional value. This is not strictly necessary but because we also had a \emph{linking} class between recipe and ingredient we decided to add this as well. This because otherwise ingredient class would have a data property amount, which is not very generic as other applications might be interested in only the ingredient class. During this meeting some name changes where made because they where clearer.
 
-\subsection{Team Organization}
+\subsection{Extra adaptations} 
+Another discussion took place on slack where it was proposed to give a name to individual recipes. Since food already has a name and a recipe leads to a food we decided to keep the name in food and not give it an individual name. Furthermore group 7 revisited the idea that calorie as part of the nutritive value was not the way to go. It was then decided that defining calorie as an individual made more sense.
 
-Since Arno De Witte was on vacation during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we weren't sure of certain aspects we could always reach Arno and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. Writing the report was a group effort. \todo{Uitbreiden met wat er laatste stretch nog gedaan is}
 
 \subsection{Other discussions}
 We discussed what other groups had in common with our proposal. Because there where no things that where worthwhile exchanging we did not add an extra ontology.
@@ -122,18 +122,22 @@ It depicts the amount of some nutrient per 100 gram of some ingredient. This con
 A step in the preparation process of a recipe. A step has a ordering number starting from 1. A step has a number for ordering and a string as a human readable description. This contains an order number which specifies the order of the steps and a description.
 
 \section{Mapping database to ontology}
-Because we want a lot of data where we can query on, we asked the other food-groups to exchange their triples. Some exercise groups also wanted to use the triples of the food groups. Therefore, our group put messages on the slack channel, on the Facebook group and on the pointcarré-forum of the course. Although we thought that it could benefit other groups to, to exchange the information, we did not get the response we've expected. This could be because some groups did not had their triples ready or they did not saw the message although we put it on three different media. 
+The mapping of the database to the ontology went quite easy. In general the mapping was straightforward. We did however decide to map Ingredient to Food. This decision was made since since our definition of Ingredients matched the definition of food and we don't have food. Furthermore in our database the quantity of an ingredient for which we keep the calories is always 100 gram. Since our recipes don't have steps we didn't provide a mapping for these. 
+\\ \\
+Since we need a lot of data to query, we asked the other food-groups to exchange their generated triples. Some exercise groups also wanted to use the triples of the food groups. Therefore, our group decided to put messages on the slack channel, the Facebook group and on the Pointcarré-forum of the course to ask for the different groups triples. We put the message on the different forums to reach as much people as possible. We assumed that other groups would benefit from the exchange of triples, but the response wasn't what was expected. A possible reason is that some of the groups weren't done with their triples.
+\\ \\
+From the food groups, only group 1 and group 5 asked to use our triples, and one exercises group. We have send them our ttl-file. In response we got the ttl-files from group 7 and group 5. One problem with these files however was that each separate group used their own prefix which didn't make the ttl-files globally usable. 
 
-Only group 1 and group 5 asked to use our triples for the food-groups and one exercise group wanted to use our triples to. We have send them our ttl-file. 
 \section{Non-trivial demonstrator}
-Our demonstration allows to formulate a number of health and dieting constraints (has to consume a number of calories, cant eat too much salt, is allergic to nuts, ...) and search for fitting recipes. Our demonstration allows to easily fill in these constraints and suggests a number of recipes that fit these needs. Users can combine constraints in a "and-or-not" kind of fashion. For example a user cannot eat too much fat combined with too much sugar, he is also allergic to bananas. This would result in a rule; fat lower than 30g or sugar lower than 20g and no bananas. Additional to this user can express preferences, for example a user dislikes broccoli but likes fries. Recipes with broccoli will be ranked lower than recipes with fries.
+Our demonstration allows to formulate a number of health and dieting constraints (has to consume a number of calories, cant eat too much salt, is allergic to nuts, ...) and search for fitting recipes. Our demonstration allows to easily fill in these constraints and suggests a number of recipes that fit these needs. Users can combine constraints in a "and-or-not" kind of fashion. For example a user cannot eat too much fat combined with too much sugar, he is also allergic to bananas. This would result in a rule; fat lower than 30g or sugar lower than 20g and no bananas. In addition to this user can express preferences, for example a user dislikes broccoli but likes fries. Recipes with broccoli will be ranked lower than recipes with fries.
+\\ \\
+This demonstration uses the developed ontology and thus also databases of other teams. Since the ontology provides the ingredients for each recipe as well as their nutritive values this can be done. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favourable, unfavourable or neutral for a certain set of preferences.
 
-This demonstration uses the developed ontology and thus also databases of other teams. This because the ontology provides the ingredients for each recipe as well as their nutritive values. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favourable, unfavourable or neutral for a certain set of preferences.
 \subsection{Rule based languages}
 Because we have to define some rules and queries, we need a rule based language to define those things. We have looked at two different rule based languages, SPIN and SWRL.
 \subsection*{SPIN}
 The first rule based language is SPIN, SPARQL Inference Notation. The rules in this language can be expressed using SPARQL, which is very expressive. Therefore rules can run on RDF data, in our case our triples. With SPIN, you can calculate things for example the difference in weight of a person in a specific period. 
-
+\\ \\ 
 SPIN uses the concepts of object oriented languages, query languages and rule based systems. They used SPARQL because it is a WC3 standard. 
 SPIN makes it also possible to create templates. This has as advantage that the designers of the rules do not need to know SPARQL. In our case, this not necessary because we are defining the rules and the queries for the non-trivial demonstrator. 
 
@@ -167,12 +171,12 @@ Implies(Antecedent(Artist(I-variable(x))
 \end{lstlisting}
 
 \subsection*{Choice}
-Because we've already used SPARQL for this project, we have chosen for SPIN to be our rule based language. The reasons are because you can define templates which can be reused and we can define constraints. SWRL is strong on interfering, but because we do not need this, we have chosen for SPIN.
-
-We have used Jena Fuseki as a Java API to upload our data sets, which where all the sets of the food groups, and to query SPARQL queries on the data sets. We have used Jena, but we only used the GUI for exploring how everything works. 
+Because we've already used SPARQL for this project, we have chosen for SPIN to be our rule based language. The reasons are because you can define templates which can be reused and we can define constraints. Furthermore SPIN has a constraintviolationlevel which makes it possible for us to define hard and soft constraints. SWRL is strong on interfering, but because we do not need this, we have chosen for SPIN.
+\\ \\ 
+We have used Jena Fuseki as a Java API to upload our data sets, which were all the sets of the food groups, and to query SPARQL queries on the data sets. We have used Jena, but we only used the GUI for exploring how everything works. 
 
 \subsection{Non-trivial demonstrator}
-Our demonstrator is implemented as a java application which can be used as a commandline tool. It has dependencies on the jena API\footnote{\url{https://jena.apache.org/}}, SPIN open source API\footnote{\url{http://topbraid.org/spin/api/}} and the Antlr parser library\footnote{\url{http://www.antlr.org/}}. As said in the previous section we used SPIN to implement our demonstrator. For our demonstrator we implemented two SPIN constraints, one to filter recipes that contain a certain ingredient and one to filter recipes that contain too much of a certain nutritive value. These constraint were abstracted using SPIN templates. This allows to use parameters such as the nutrient name or the nutrient value. We also added a parameter to indicate a certain violation level\footnote{\url{http://spinrdf.org/spin.html\#spin-constraint-construct}}. This parameter was used to differentiate between hard and soft constraints. To apply these SPIN constraints, a constraint had to be added to the Recipe class defined in the ontology as shown below:
+Our demonstrator is implemented as a Java application which can be used as a commandline tool. It has dependencies on the Jena API\footnote{\url{https://jena.apache.org/}}, SPIN open source API\footnote{\url{http://topbraid.org/spin/api/}} and the Antlr parser library\footnote{\url{http://www.antlr.org/}}. As said in the previous section we used SPIN to implement our demonstrator. For our demonstrator we implemented two SPIN constraints, one to filter recipes that contain a certain ingredient and one to filter recipes that contain too much of a certain nutritive value. These constraint were abstracted using SPIN templates. This allows to use parameters such as the nutrient name or the nutrient value. We also added a parameter to indicate a certain violation level\footnote{\url{http://spinrdf.org/spin.html\#spin-constraint-construct}}. This parameter was used to differentiate between hard and soft constraints. To apply these SPIN constraints, a constraint had to be added to the Recipe class defined in the ontology as shown below:
 \begin{lstlisting}[caption=Example of applying constraints in turtle]
 ont:Recipe  
   spin:constraint  [ a ont:templateIngre ;
@@ -198,17 +202,17 @@ For future work this demonstrator could be expanded by adding more constraints (
 \section{Reflection}
 During the project, we have encountered some problems and some findings that could have been done in another way next time. 
 \subsection*{Database} 
-Our database provides recipes, but they do not contain any steps. We have noticed that every other group that has recipes do specify the steps in order to complete the recipe. We thought that only providing the ingredients would be enough and that users could look up the recipe. If we have to do it again, we would include the steps.
+Our database provides recipes, but they do not contain any steps. We have noticed that every other group that has recipes do specify the steps in order to complete the recipe. We thought that only providing the ingredients would be enough and that users could look up the recipe. If we have to do it again, we would include the steps. Furthermore we would also add the possibility to safe the calories for a different unit then just 100 grams. 
 \subsection*{Ontology} 
 Working together with a big group does not speaks for itself. We have noticed that during the face to face meetings a lot of work could be done, but we have only started to meet face to face rather late and not every group was present. It would have been better if we agreed on a date as soon as we got the assignment to meet face to face even before the holidays.  
-
-ONTOLOGY
-Although every group participated and checked the ontology, we missed something. We forgot to gave a recipe a name. For our group, this was not a problem, because we mapped every recipe as food as well and food contains a name. Some other groups also complained again about the nutritional values and the quantity of them. Because this is not something we have, this was not a problem for our group. 
-
-MAPPING
-
+\\ \\ 
+Although every group participated and checked the ontology, we missed something. We forgot to give a recipe a name. For our group, this was not a problem, because we mapped every recipe on food as well and food contains a name. 
 \subsection{Non-trivial demonstrator}
 When looking into SPIN it seemed a perfect fit for the demonstrator we wanted to implement. However the lack of documentation of the open source API and the lack of documentation surrounding the operators made implementing all of our goals impossible. SPIN is a good fit for these kind of projects because of its relation with SPARQL, but the implementation and documentation of the API could be a lot better at this point in time.
+
+\section{Team Organization}
+
+Since Arno De Witte was busy during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we weren't sure of certain aspects we could always reach Arno and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. The group came together to discuss which non trivial demonstrator would be implemented. Furthermore doing the mapping and creating the tuples was a group effort. Jolien and Arno looked into the different Rule based languages. The implementation of the non-trivial demonstrator was done by Arno De Witte. The final report was written as a group. 
 
 \section*{References}
 http://www.bbc.co.uk/ontologies/fo\newline
@@ -222,5 +226,6 @@ http://www.w3.org/
 Submission/spin-overview/\newline
 http://www.w3.org/Submission/SWRL/\newline
 http://starpc14.vub.ac.be:8080/webprotege \newline
-https://jena.apache.org/documentation/serving\_data/
+https://jena.apache.org/documentation/serving\_data/ \newline
+https://ontology-ois.slack.com/messages
 \end{document}
