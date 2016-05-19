@@ -90,7 +90,7 @@ We discussed what other groups had in common with our proposal. Because there wh
 \newline
 \newline
 \noindent
-We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology. \todo{aanpassen ontology, namespaces}
+We had the discussion with all of the groups whether or not we should exchange information about our users or the accounts. We did not see any benefits and for privacy reasons for the user we decided not to exchange user information and therefore not include this in the ontology. 
 
 \subsection{Ontology explained}
 The ontology is centred around the ingredient class. An ingredient was the thing we all had in common to start with. Ingredients have nutritional values like sugar, salt and calories, specified in the list of nutritive values. We have decided to make an extra class nutritive value to specify this. Because we need to be able to have multiple nutritive values for one ingredient, we have added the nutritive value quantity. This was necessary for some of the groups in order to be able to map to the ontology. Here you can specify the quantity specified for a nutritive value for 100 gram.
@@ -126,7 +126,7 @@ The mapping of the database to the ontology went quite easy. In general the mapp
 \\ \\
 Since we need a lot of data to query, we asked the other food-groups to exchange their generated triples. Some exercise groups also wanted to use the triples of the food groups. Therefore, our group decided to put messages on the slack channel, the Facebook group and on the Pointcarré-forum of the course to ask for the different groups triples. We put the message on the different forums to reach as much people as possible. We assumed that other groups would benefit from the exchange of triples, but the response wasn't what was expected. A possible reason is that some of the groups weren't done with their triples.
 \\ \\
-From the food groups, only group 1 and group 5 asked to use our triples, and one exercises group. We have send them our ttl-file. In response we got the ttl-files from group 7 and group 5. One problem with these files however was that each separate group used their own prefix which didn't make the ttl-files globally usable. 
+From the food groups, only group 1 and group 5 asked to use our triples, and one exercises group. We have send them our ttl-file. In response we got the ttl-files from group 7 and group 5. One problem with these files however was that each separate group used their own namespace for the ontology, which didn't make the ttl-files globally usable. We solved this by editing the triples of other groups to use the same namespace.
 
 \section{Non-trivial demonstrator}
 Our demonstration allows to formulate a number of health and dieting constraints (has to consume a number of calories, cant eat too much salt, is allergic to nuts, ...) and search for fitting recipes. Our demonstration allows to easily fill in these constraints and suggests a number of recipes that fit these needs. Users can combine constraints in a "and-or-not" kind of fashion. For example a user cannot eat too much fat combined with too much sugar, he is also allergic to bananas. This would result in a rule; fat lower than 30g or sugar lower than 20g and no bananas. In addition to this user can express preferences, for example a user dislikes broccoli but likes fries. Recipes with broccoli will be ranked lower than recipes with fries.
@@ -134,14 +134,14 @@ Our demonstration allows to formulate a number of health and dieting constraints
 This demonstration uses the developed ontology and thus also databases of other teams. Since the ontology provides the ingredients for each recipe as well as their nutritive values this can be done. In our original application (and database) we don't provide nutritive values other than calories. Therefore we will need to query other projects SPARQL endpoints, which will hopefully provide these values. We plan to use a rule system to indicate whether a recipe is favourable, unfavourable or neutral for a certain set of preferences.
 
 \subsection{Rule based languages}
-Because we have to define some rules and queries, we need a rule based language to define those things. We have looked at two different rule based languages, SPIN and SWRL.
+Because we have to define some rules and queries, we needed a rule based language to define those things. We looked at two different rule based languages, SPIN and SWRL.
 \subsection*{SPIN}
-The first rule based language is SPIN, SPARQL Inference Notation. The rules in this language can be expressed using SPARQL, which is very expressive. Therefore rules can run on RDF data, in our case our triples. With SPIN, you can calculate things for example the difference in weight of a person in a specific period. 
+The first rule based language is SPIN, SPARQL Inference Notation. The rules in this language can be expressed using SPARQL, which is very expressive. The SPARQL queries can also be expressed in SPIN triples. Therefore rules can run on RDF data, in our case our triples. With SPIN, you can infer triples and properties for example the difference in weight of a person in a specific period. In SPIN it is also possible to define a number or constraints which can be applied to 
 \\ \\ 
-SPIN uses the concepts of object oriented languages, query languages and rule based systems. They used SPARQL because it is a WC3 standard. 
-SPIN makes it also possible to create templates. This has as advantage that the designers of the rules do not need to know SPARQL. In our case, this not necessary because we are defining the rules and the queries for the non-trivial demonstrator. 
+SPIN uses the concepts of object orieted languages, query languages and rule based systems. They use SPARQL because it is a WC3 standard and already known by a lot of developers.
+SPIN makes it also possible to create templates. This has as advantage that the designers of the rules and constraint do not need to know SPARQL. In our case, this not necessary because we are defining the rules and the queries for the non-trivial demonstrator. 
 
-An example of an ask-query is defined below in listing 1.
+An example of an ask-query converted to SPIN notation is defined below in listing 1.
 
 \begin{lstlisting}[caption={Example of query using SPIN}]
 [ a       sp:Ask ;
@@ -171,9 +171,9 @@ Implies(Antecedent(Artist(I-variable(x))
 \end{lstlisting}
 
 \subsection*{Choice}
-Because we've already used SPARQL for this project, we have chosen for SPIN to be our rule based language. The reasons are because you can define templates which can be reused and we can define constraints. Furthermore SPIN has a constraintviolationlevel which makes it possible for us to define hard and soft constraints. SWRL is strong on interfering, but because we do not need this, we have chosen for SPIN.
+Because we've already used SPARQL for this project, we have chosen for SPIN to be our rule based language. Because you can define templates which can be reused and because you can define constraints, we chose SPIN over SWRL. Furthermore SPIN has a ConstraintViolationLevel which makes it possible for us to define different levels of constraints, which is useful to implement the hard and soft constraints. SWRL is a good language for inferring new triples, but because we do not necessarily need this, we have chosen SPIN.
 \\ \\ 
-We have used Jena Fuseki as a Java API to upload our data sets, which were all the sets of the food groups, and to query SPARQL queries on the data sets. We have used Jena, but we only used the GUI for exploring how everything works. 
+We have used Jena as a Java API to upload our data sets, which were all the sets of the food groups, and to query SPARQL queries on the data sets. We have also used Jena Fuseki to test different queries through the provided web GUI. 
 
 \subsection{Non-trivial demonstrator}
 Our demonstrator is implemented as a Java application which can be used as a commandline tool. It has dependencies on the Jena API\footnote{\url{https://jena.apache.org/}}, SPIN open source API\footnote{\url{http://topbraid.org/spin/api/}} and the Antlr parser library\footnote{\url{http://www.antlr.org/}}. As said in the previous section we used SPIN to implement our demonstrator. For our demonstrator we implemented two SPIN constraints, one to filter recipes that contain a certain ingredient and one to filter recipes that contain too much of a certain nutritive value. These constraint were abstracted using SPIN templates. This allows to use parameters such as the nutrient name or the nutrient value. We also added a parameter to indicate a certain violation level\footnote{\url{http://spinrdf.org/spin.html\#spin-constraint-construct}}. This parameter was used to differentiate between hard and soft constraints. To apply these SPIN constraints, a constraint had to be added to the Recipe class defined in the ontology as shown below:
@@ -202,17 +202,17 @@ For future work this demonstrator could be expanded by adding more constraints (
 \section{Reflection}
 During the project, we have encountered some problems and some findings that could have been done in another way next time. 
 \subsection*{Database} 
-Our database provides recipes, but they do not contain any steps. We have noticed that every other group that has recipes do specify the steps in order to complete the recipe. We thought that only providing the ingredients would be enough and that users could look up the recipe. If we have to do it again, we would include the steps. Furthermore we would also add the possibility to safe the calories for a different unit then just 100 grams. 
+Our database provides recipes, but these do not contain any steps. We have noticed that every other group that has recipes, do specify the steps in order to complete the recipe. We thought that only providing the ingredients would be enough and that users could look up the recipe. Looking back these steps are something that we should add to our applications database. Furthermore we would also add the possibility to safe the calories for a different unit than just 100 grams. 
 \subsection*{Ontology} 
 Working together with a big group does not speaks for itself. We have noticed that during the face to face meetings a lot of work could be done, but we have only started to meet face to face rather late and not every group was present. It would have been better if we agreed on a date as soon as we got the assignment to meet face to face even before the holidays.  
-\\ \\ 
-Although every group participated and checked the ontology, we missed something. We forgot to give a recipe a name. For our group, this was not a problem, because we mapped every recipe on food as well and food contains a name. 
-\subsection{Non-trivial demonstrator}
+\\ \\  
+Although every group participated and checked the ontology, we missed something. We forgot to give a recipe a name. This way we could add different recipes for the same food. For our group, this was not a problem, because we mapped every recipe on food as well and food contains a name. 
+\subsection*{Non-trivial demonstrator}
 When looking into SPIN it seemed a perfect fit for the demonstrator we wanted to implement. However the lack of documentation of the open source API and the lack of documentation surrounding the operators made implementing all of our goals impossible. SPIN is a good fit for these kind of projects because of its relation with SPARQL, but the implementation and documentation of the API could be a lot better at this point in time.
 
-\section{Team Organization}
+\section{Team Organisation}
 
-Since Arno De Witte was busy during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we weren't sure of certain aspects we could always reach Arno and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. The group came together to discuss which non trivial demonstrator would be implemented. Furthermore doing the mapping and creating the tuples was a group effort. Jolien and Arno looked into the different Rule based languages. The implementation of the non-trivial demonstrator was done by Arno De Witte. The final report was written as a group. 
+Since Arno De Witte was busy during spring break, both Jolien Declerck and Silke Verhaeghe attended the first two slack meetings and the first real life meeting. In case we weren't sure of certain aspects we could always reach Arno and a global overview of the decisions was given after each meeting. For the rest of the meetings everyone of our group was present. Arno was the one to apply the remarks of the teacher to our current database/Conceptual schema. The group came together to discuss which non trivial demonstrator would be implemented. Furthermore doing the mapping and creating the triples was a group effort. Jolien and Arno looked into the different Rule based languages. The implementation of the non-trivial demonstrator was done by Arno De Witte. The final report was written as a group. 
 
 \section*{References}
 http://www.bbc.co.uk/ontologies/fo\newline
