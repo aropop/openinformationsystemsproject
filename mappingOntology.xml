@@ -93,6 +93,11 @@
 		rr:objectMap [rr:constant "gram"]
 	];
 
+	rr:predicateObjectMap [
+		rr:predicate ont:hasNutritiveValue;
+		rr:objectMap [rr:constant "http://data.groep2.be/resource/nutritivevalue/Calorie"]
+	];
+
 	rr:predicateObjectMap [	
 		rr:predicate ont:hasIngredient;
 		rr:objectMap [
